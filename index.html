@@ -4,45 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Déclic Dys - Parce que penser autrement ne devrait jamais empêcher de réussir</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'OpenDyslexic';
             src: url('https://cdn.jsdelivr.net/npm/opendyslexic@2.0.1/fonts/OpenDyslexic-Regular.otf') format('opentype');
             font-weight: normal;
         }
-
         @font-face {
             font-family: 'OpenDyslexic';
             src: url('https://cdn.jsdelivr.net/npm/opendyslexic@2.0.1/fonts/OpenDyslexic-Bold.otf') format('opentype');
             font-weight: bold;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #2D5F7C;
             --secondary: #E8925C;
             --accent: #F4D35E;
             --dark: #1A3A4A;
             --light: #F9F7F4;
-            --text: #2C2C2C;
             --gradient: linear-gradient(135deg, #2D5F7C 0%, #4A8BAD 100%);
         }
-
         body {
-            font-family: 'OpenDyslexic', 'Open Sans', sans-serif;
-            color: var(--text);
+            font-family: 'OpenDyslexic', 'Outfit', sans-serif;
+            color: #2C2C2C;
             line-height: 1.8;
             background: var(--light);
-            overflow-x: hidden;
             font-size: 18px;
         }
-
+        
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -51,9 +42,8 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1.5rem 5%;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
-
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -61,60 +51,36 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-size: 2rem;
             font-weight: bold;
             color: var(--primary);
             text-decoration: none;
         }
-
-        .logo span {
-            color: var(--secondary);
-        }
-
+        .logo span { color: var(--secondary); }
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
-
         .nav-links a {
             text-decoration: none;
-            color: var(--text);
+            color: #2C2C2C;
             font-weight: 600;
+            transition: color 0.3s;
         }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-            background: white;
-            padding: 0.5rem;
-            border-radius: 20px;
-            border: 2px solid var(--primary);
-        }
-
+        .nav-links a:hover { color: var(--secondary); }
         .lang-btn {
-            padding: 0.3rem 0.8rem;
-            border: none;
-            background: transparent;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary);
+            background: white;
+            border-radius: 20px;
             cursor: pointer;
-            border-radius: 15px;
             font-weight: bold;
-            color: var(--text);
             font-family: inherit;
         }
-
-        .lang-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
+        .lang-btn:hover { background: var(--primary); color: white; }
         .cta-btn {
             background: var(--gradient);
             color: white;
@@ -123,7 +89,8 @@
             text-decoration: none;
             font-weight: bold;
         }
-
+        
+        /* Hero */
         .hero {
             margin-top: 80px;
             padding: 6rem 5%;
@@ -131,369 +98,115 @@
             color: white;
             text-align: center;
         }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 3rem;
-        }
-
-        section {
-            padding: 5rem 5%;
-        }
-
-        .section-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-        }
-
-        .services {
-            background: var(--light);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-top: 1.5rem;
-        }
-
-        .service-note {
-            font-size: 0.9rem;
-            color: #999;
-            margin-top: 0.5rem;
-        }
-
-        .workshops {
-            background: white;
-        }
-
-        .workshop-card {
-            background: var(--light);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-        }
-
-        .workshop-header {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .workshop-info h4 {
-            font-size: 1.6rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .workshop-details {
-            text-align: right;
-        }
-
-        .workshop-details .price {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .workshop-details .duration {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: var(--gradient);
-            color: white;
-            padding: 0.8rem 2rem;
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; font-weight: bold; }
+        .hero .tagline { font-size: 1.5rem; margin-bottom: 1rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero .subtitle { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+        .btn-primary, .btn-secondary {
+            padding: 1.2rem 3rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
             border: none;
             cursor: pointer;
             font-family: inherit;
         }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
-
-        .calendar-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            display: none;
-        }
-
-        .calendar-container.active {
-            display: block;
-        }
-
-        .calendar-month {
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 0.5rem;
-        }
-
-        .calendar-day {
-            text-align: center;
-            padding: 1rem;
-            border-radius: 5px;
-            font-size: 0.95rem;
-            min-height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .calendar-day.header {
-            font-weight: bold;
-            color: var(--primary);
-            background: transparent;
-        }
-
-        .calendar-day.available {
-            background: var(--light);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .calendar-day.available:hover {
-            background: var(--accent);
-            transform: scale(1.05);
-            border-color: var(--primary);
-        }
-
-        .calendar-day.booked {
-            background: #f0f0f0;
-            color: #999;
-            text-decoration: line-through;
-        }
-
-        .calendar-day.selected {
-            background: var(--secondary);
-            color: white;
-            border: 2px solid var(--primary);
-        }
-
-        .booking-form {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 1.5rem;
-            display: none;
-        }
-
-        .booking-form.active {
-            display: block;
-        }
-
-        .adhesion {
-            background: var(--light);
-        }
-
-        .form-container {
-            background: white;
-            padding: 4rem;
-            border-radius: 30px;
-            max-width: 900px;
-            margin: 3rem auto 0;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        .payment-info {
-            background: var(--light);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-            border: 2px solid var(--secondary);
-        }
-
-        .payment-info h4 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-
-        .payment-methods {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .payment-method {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 10px;
-        }
-
-        .payment-method h5 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .iban-display {
-            font-family: monospace;
-            font-size: 1.1rem;
-            background: var(--light);
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
-            word-break: break-all;
-        }
-
-        .qr-code {
-            max-width: 200px;
-            height: auto;
-            margin: 1rem auto;
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .btn-primary { background: white; color: var(--primary); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,255,255,0.3); }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: white; color: var(--primary); }
+        
+        /* Sections */
+        section { padding: 5rem 5%; }
+        .section-content { max-width: 1400px; margin: 0 auto; }
+        .section-title { font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; font-weight: bold; text-align: center; }
+        .section-subtitle { font-size: 1.3rem; color: #666; text-align: center; max-width: 800px; margin: 0 auto 3rem; }
+        
+        /* Stats */
+        .stats { background: white; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 3rem; text-align: center; }
+        .stat-card { padding: 2rem; }
+        .stat-number { font-size: 3.5rem; font-weight: bold; color: var(--secondary); margin-bottom: 0.5rem; }
+        .stat-label { font-size: 1.1rem; color: #666; }
+        
+        /* Histoire */
+        .notre-histoire { background: var(--light); }
+        .histoire-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+        .histoire-photo { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .histoire-photo img { width: 100%; height: auto; display: block; }
+        .histoire-text h3 { font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .histoire-text p { margin-bottom: 1.5rem; line-height: 1.9; }
+        .highlight-box { background: white; padding: 2rem; border-left: 5px solid var(--secondary); border-radius: 10px; margin: 2rem 0; }
+        
+        /* Services */
+        .services { background: white; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .service-card { background: var(--light); padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .service-card h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; }
+        .service-card p { color: #666; margin-bottom: 1.5rem; line-height: 1.8; }
+        .service-price { font-size: 1.5rem; font-weight: bold; color: var(--secondary); margin-top: 1.5rem; }
+        .service-note { font-size: 0.9rem; color: #999; margin-top: 0.5rem; }
+        
+        /* Blog */
+        .blog { background: var(--light); }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; margin-top: 3rem; }
+        .blog-card { background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .blog-card h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; }
+        .blog-card h4 { font-size: 1.3rem; color: var(--secondary); margin-bottom: 1rem; margin-top: 1.5rem; }
+        .blog-card p { margin-bottom: 1rem; line-height: 1.8; }
+        .blog-tag { display: inline-block; background: var(--accent); color: var(--dark); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: bold; margin-bottom: 1rem; }
+        
+        /* Workshops */
+        .workshops { background: white; }
+        .workshop-card { background: var(--light); padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem; }
+        .workshop-header { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center; }
+        .workshop-info h4 { font-size: 1.6rem; color: var(--primary); margin-bottom: 1rem; }
+        .workshop-details { text-align: right; }
+        .workshop-details .price { font-size: 2rem; font-weight: bold; color: var(--secondary); margin-bottom: 0.5rem; }
+        
+        /* Calendar */
+        .calendar-container { background: white; padding: 2rem; border-radius: 10px; margin-top: 1rem; display: none; }
+        .calendar-container.active { display: block; }
+        .calendar-month { text-align: center; font-size: 1.3rem; font-weight: bold; color: var(--primary); margin-bottom: 1.5rem; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; }
+        .calendar-day { text-align: center; padding: 1rem; border-radius: 5px; min-height: 50px; display: flex; align-items: center; justify-content: center; }
+        .calendar-day.header { font-weight: bold; color: var(--primary); }
+        .calendar-day.available { background: var(--light); cursor: pointer; transition: all 0.3s; border: 2px solid transparent; }
+        .calendar-day.available:hover { background: var(--accent); transform: scale(1.05); }
+        .calendar-day.booked { background: #f0f0f0; color: #999; text-decoration: line-through; }
+        .calendar-day.selected { background: var(--secondary); color: white; border: 2px solid var(--primary); }
+        .booking-form { background: var(--light); padding: 2rem; border-radius: 10px; margin-top: 1.5rem; display: none; }
+        .booking-form.active { display: block; }
+        
+        /* Adhésion */
+        .adhesion { background: var(--light); }
+        .form-container { background: white; padding: 4rem; border-radius: 30px; max-width: 900px; margin: 3rem auto 0; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        .payment-info { background: var(--light); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 2px solid var(--secondary); }
+        .payment-info h4 { color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem; text-align: center; }
+        .payment-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+        .payment-method { text-align: center; padding: 1.5rem; background: white; border-radius: 10px; }
+        .payment-method h5 { color: var(--primary); margin-bottom: 1rem; }
+        .iban-display { font-family: monospace; font-size: 1.1rem; background: var(--light); padding: 1rem; border-radius: 5px; margin: 1rem 0; }
+        .qr-code { max-width: 200px; height: auto; margin: 1rem auto; display: block; }
+        .form-group { margin-bottom: 2rem; }
+        .form-group label { display: block; font-weight: bold; color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 1.2rem;
             border: 2px solid #e0e0e0;
             border-radius: 10px;
-            font-family: 'OpenDyslexic', 'Open Sans', sans-serif;
+            font-family: 'OpenDyslexic', 'Outfit', sans-serif;
             font-size: 1.1rem;
         }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .checkbox-group {
-            margin: 2rem 0;
-        }
-
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-            font-weight: normal;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: 24px;
-            height: 24px;
-            margin-right: 1rem;
-        }
-
+        .form-group textarea { min-height: 150px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .checkbox-group { margin: 2rem 0; }
+        .checkbox-group label { display: flex; align-items: center; font-weight: normal; color: #666; margin-bottom: 1rem; }
+        .checkbox-group input[type="checkbox"] { width: 24px; height: 24px; margin-right: 1rem; }
         .submit-btn {
             background: var(--gradient);
             color: white;
@@ -504,169 +217,294 @@
             border-radius: 50px;
             cursor: pointer;
             width: 100%;
-            font-family: 'OpenDyslexic', 'Open Sans', sans-serif;
+            font-family: inherit;
+            transition: all 0.3s;
         }
-
-        .submit-btn:hover {
-            opacity: 0.9;
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(45, 95, 124, 0.4); }
+        .success-message { display: none; background: #d4edda; color: #155724; padding: 2rem; border-radius: 10px; margin-top: 2rem; text-align: center; }
+        
+        /* Footer */
+        footer { background: var(--dark); color: white; padding: 4rem 5% 2rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+        .footer-about h3 { font-size: 2rem; margin-bottom: 1rem; }
+        .footer-about h3 span { color: var(--accent); }
+        .footer-links h4 { margin-bottom: 1.5rem; color: var(--accent); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
+        .footer-links a:hover { opacity: 1; color: var(--accent); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.6; }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .histoire-grid { grid-template-columns: 1fr; }
+            .workshop-header { grid-template-columns: 1fr; }
+            .workshop-details { text-align: center; }
+            .footer-content { grid-template-columns: 1fr; }
+            .payment-methods { grid-template-columns: 1fr; }
         }
-
-        .success-message {
-            display: none;
-            background: #d4edda;
-            color: #155724;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .lang-notice {
-            background: rgba(255,255,255,0.2);
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-            font-size: 1.1rem;
-        }
-
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .form-row, .payment-methods, .workshop-header {
-                grid-template-columns: 1fr;
-            }
-            .workshop-details {
-                text-align: center;
-            }
-            .form-container {
-                padding: 2rem;
-            }
-            .calendar-grid {
-                gap: 0.2rem;
-            }
-            .calendar-day {
-                padding: 0.5rem;
-                font-size: 0.85rem;
-                min-height: 40px;
-            }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .form-container { padding: 2rem; }
+            .services-grid, .blog-grid { grid-template-columns: 1fr; }
+            .calendar-day { padding: 0.5rem; font-size: 0.85rem; min-height: 40px; }
         }
-
-        .translate {
-            display: none;
-        }
-
-        .translate.active {
-            display: block;
-        }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">Déclic<span>Dys</span></a>
             <ul class="nav-links">
-                <li><a href="#services" class="translate" data-fr="Services" data-en="Services">Services</a></li>
-                <li><a href="#workshops" class="translate" data-fr="Workshops" data-en="Workshops">Workshops</a></li>
-                <li><a href="#adhesion" class="translate" data-fr="Adhésion" data-en="Membership">Adhésion</a></li>
-                <li>
-                    <div class="lang-switcher">
-                        <button class="lang-btn active" onclick="switchLang('fr')">FR</button>
-                        <button class="lang-btn" onclick="switchLang('en')">EN</button>
-                    </div>
-                </li>
+                <li><a href="#stats" class="trans" data-fr="Mission" data-en="Mission">Mission</a></li>
+                <li><a href="#histoire" class="trans" data-fr="Notre Histoire" data-en="Our Story">Notre Histoire</a></li>
+                <li><a href="#blog" class="trans" data-fr="Articles" data-en="Articles">Articles</a></li>
+                <li><a href="#services" class="trans" data-fr="Services" data-en="Services">Services</a></li>
+                <li><a href="#workshops" class="trans" data-fr="Workshops" data-en="Workshops">Workshops</a></li>
+                <li><a href="#adhesion" class="trans" data-fr="Adhésion" data-en="Join">Adhésion</a></li>
+                <li><button class="lang-btn" onclick="toggleLang()">🌐 EN</button></li>
             </ul>
-            <a href="#adhesion" class="cta-btn translate" data-fr="Rejoignez-nous" data-en="Join us">Rejoignez-nous</a>
+            <a href="#adhesion" class="cta-btn trans" data-fr="Rejoignez-nous" data-en="Join us">Rejoignez-nous</a>
         </div>
     </nav>
 
+    <!-- Hero -->
     <section class="hero">
-        <h1 class="translate" data-fr="Déclic Dys" data-en="Déclic Dys">Déclic Dys</h1>
-        <p class="tagline translate" data-fr="Parce que penser autrement ne devrait jamais empêcher de réussir. Déclic Dys donne aux esprits atypiques les clés de leur propre excellence." data-en="Because thinking differently should never prevent success. Déclic Dys gives atypical minds the keys to their own excellence.">Parce que penser autrement ne devrait jamais empêcher de réussir. Déclic Dys donne aux esprits atypiques les clés de leur propre excellence.</p>
-        <p class="subtitle translate" data-fr="🌍 Association francophone | Accompagnement personnalisé à partir de 12 ans" data-en="🌍 French-speaking Association | Personalized support from age 12">🌍 Association francophone | Accompagnement personnalisé à partir de 12 ans</p>
-        <div class="lang-notice translate" data-fr="📢 Toutes nos formations peuvent être dispensées en français ou en anglais" data-en="📢 All our trainings can be delivered in French or English">📢 Toutes nos formations peuvent être dispensées en français ou en anglais</div>
+        <h1>Déclic Dys</h1>
+        <p class="tagline trans" data-fr="Parce que penser autrement ne devrait jamais empêcher de réussir. Déclic Dys donne aux esprits atypiques les clés de leur propre excellence." data-en="Because thinking differently should never prevent success. Déclic Dys gives atypical minds the keys to their own excellence.">
+            Parce que penser autrement ne devrait jamais empêcher de réussir. Déclic Dys donne aux esprits atypiques les clés de leur propre excellence.
+        </p>
+        <p class="subtitle trans" data-fr="🌍 Association francophone | Accompagnement personnalisé à partir de 12 ans" data-en="🌍 French-speaking Association | Personalized support from age 12">
+            🌍 Association francophone | Accompagnement personnalisé à partir de 12 ans
+        </p>
+        <p class="subtitle trans" data-fr="📢 Formations disponibles en français et en anglais" data-en="📢 Training available in French and English">
+            📢 Formations disponibles en français et en anglais
+        </p>
+        <div class="hero-buttons">
+            <a href="#histoire" class="btn-primary trans" data-fr="Découvrir notre histoire" data-en="Discover our story">Découvrir notre histoire</a>
+            <a href="#adhesion" class="btn-secondary trans" data-fr="Devenir membre" data-en="Become a member">Devenir membre</a>
+        </div>
     </section>
 
-    <section class="services" id="services">
+    <!-- Stats / Mission -->
+    <section class="stats" id="stats">
         <div class="section-content">
-            <h2 class="section-title translate" data-fr="Nos Services" data-en="Our Services">Nos Services</h2>
-            <p class="section-subtitle translate" data-fr="Un accompagnement complet pour transformer la différence en force" data-en="Comprehensive support to transform difference into strength">Un accompagnement complet pour transformer la différence en force</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3 class="translate" data-fr="Accompagnement Individuel" data-en="Individual Coaching">Accompagnement Individuel</h3>
-                    <p class="translate" data-fr="Coaching personnalisé pour adolescents (dès 12 ans) et adultes dys. Méthodes de vulgarisation adaptées et outils technologiques innovants." data-en="Personalized coaching for teenagers (from age 12) and adults with dyslexia. Adapted methods and innovative technological tools.">Coaching personnalisé pour adolescents (dès 12 ans) et adultes dys. Méthodes de vulgarisation adaptées et outils technologiques innovants.</p>
-                    <div class="service-price">CHF 150 / heure</div>
-                    <div class="service-note translate" data-fr="Disponible en français et anglais" data-en="Available in French and English">Disponible en français et anglais</div>
+            <h2 class="section-title trans" data-fr="Notre Mission en Chiffres" data-en="Our Mission in Numbers">Notre Mission en Chiffres</h2>
+            <p class="section-subtitle trans" data-fr="L'impact de notre approche Tech + Empathie" data-en="The impact of our Tech + Empathy approach">
+                L'impact de notre approche Tech + Empathie
+            </p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5-10%</div>
+                    <div class="stat-label trans" data-fr="de la population est dyslexique" data-en="of the population is dyslexic">de la population est dyslexique</div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">👥</div>
-                    <h3 class="translate" data-fr="Accompagnement Groupe" data-en="Group Coaching">Accompagnement Groupe</h3>
-                    <p class="translate" data-fr="Sessions en petit groupe (max 4 personnes) pour partager et progresser ensemble." data-en="Small group sessions (max 4 people) to share and progress together.">Sessions en petit groupe (max 4 personnes) pour partager et progresser ensemble.</p>
-                    <div class="service-price translate" data-fr="Sur devis" data-en="On quote">Sur devis</div>
-                    <div class="service-note translate" data-fr="Tarif dégressif selon le nombre de participants" data-en="Reduced rate according to number of participants">Tarif dégressif selon le nombre de participants</div>
+                <div class="stat-card">
+                    <div class="stat-number">20 ans</div>
+                    <div class="stat-label trans" data-fr="d'expertise en technologie et innovation" data-en="of expertise in technology and innovation">d'expertise en technologie et innovation</div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3 class="translate" data-fr="Formation IA & Outils" data-en="AI & Tools Training">Formation IA & Outils</h3>
-                    <p class="translate" data-fr="Maîtrisez l'intelligence artificielle comme exosquelette cognitif. Session intensive de 3 heures." data-en="Master artificial intelligence as a cognitive exoskeleton. Intensive 3-hour session.">Maîtrisez l'intelligence artificielle comme exosquelette cognitif. Session intensive de 3 heures.</p>
-                    <div class="service-price">CHF 400 / formation</div>
-                    <div class="service-note translate" data-fr="Formation en français ou anglais" data-en="Training in French or English">Formation en français ou anglais</div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🎓</div>
-                    <h3 class="translate" data-fr="Sensibilisation Professionnelle" data-en="Professional Awareness">Sensibilisation Professionnelle</h3>
-                    <p class="translate" data-fr="Formations pour écoles, entreprises et institutions francophones." data-en="Training for French-speaking schools, companies and institutions.">Formations pour écoles, entreprises et institutions francophones.</p>
-                    <div class="service-price translate" data-fr="Sur devis" data-en="On quote">Sur devis</div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📚</div>
-                    <h3 class="translate" data-fr="Ressources Pédagogiques" data-en="Educational Resources">Ressources Pédagogiques</h3>
-                    <p class="translate" data-fr="Supports adaptés, guides pratiques et outils spécialisés." data-en="Adapted materials, practical guides and specialized tools.">Supports adaptés, guides pratiques et outils spécialisés.</p>
-                    <div class="service-price">CHF 30-50 / ressource</div>
-                    <div class="service-note translate" data-fr="Catalogue disponible pour les membres" data-en="Catalog available for members">Catalogue disponible pour les membres</div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🧠</div>
-                    <h3 class="translate" data-fr="Mindset Reset" data-en="Mindset Reset">Mindset Reset</h3>
-                    <p class="translate" data-fr="Programme intensif de 6 heures pour transformer votre regard sur les troubles dys." data-en="Intensive 6-hour program to transform your view of dyslexia.">Programme intensif de 6 heures pour transformer votre regard sur les troubles dys.</p>
-                    <div class="service-price">CHF 800 / programme</div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label trans" data-fr="d'approche personnalisée et bienveillante" data-en="personalized and caring approach">d'approche personnalisée et bienveillante</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Notre Histoire -->
+    <section class="notre-histoire" id="histoire">
+        <div class="section-content">
+            <h2 class="section-title trans" data-fr="Notre Histoire" data-en="Our Story">Notre Histoire</h2>
+            <p class="section-subtitle trans" data-fr="Une expertise professionnelle au service d'une mission personnelle" data-en="Professional expertise serving a personal mission">
+                Une expertise professionnelle au service d'une mission personnelle
+            </p>
+            
+            <div class="histoire-grid">
+                <div class="histoire-photo">
+                    <img src="fondatrices.jpg" alt="Élodie et Margaïd - Fondatrices Déclic Dys">
+                </div>
+                
+                <div class="histoire-text">
+                    <h3 class="trans" data-fr="Élodie Jallet - Secrétaire et Trésorière" data-en="Élodie Jallet - Secretary and Treasurer">Élodie Jallet - Secrétaire et Trésorière</h3>
+                    
+                    <p class="trans" data-fr="Je travaille depuis de nombreuses années dans les domaines de la technologie, de l'innovation et de la communication stratégique. Dans ce cadre professionnel, j'ai développé et utilisé des méthodes de vulgarisation et de structuration de concepts complexes, reposant sur des reformulations, des analogies et des schémas explicatifs adaptés à des profils cognitifs variés." data-en="I have worked for many years in technology, innovation and strategic communication. I developed methods for simplifying and structuring complex concepts, based on reformulations, analogies and explanatory diagrams adapted to various cognitive profiles.">
+                        Je travaille depuis de nombreuses années dans les domaines de la technologie, de l'innovation et de la communication stratégique. Dans ce cadre professionnel, j'ai développé et utilisé des méthodes de vulgarisation et de structuration de concepts complexes, reposant sur des reformulations, des analogies et des schémas explicatifs adaptés à des profils cognitifs variés.
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <p class="trans" data-fr="Ma fille a été diagnostiquée dyslexique relativement tard, alors qu'elle était déjà en difficulté scolaire. Comme beaucoup de parents dans cette situation, je me suis retrouvée très démunie face au manque d'accompagnement existant pour les adolescents dyslexiques." data-en="My daughter was diagnosed with dyslexia relatively late, when she was already struggling at school. Like many parents in this situation, I found myself very helpless faced with the lack of existing support for dyslexic teenagers.">
+                            <strong>Ma fille a été diagnostiquée dyslexique relativement tard, alors qu'elle était déjà en difficulté scolaire.</strong> Comme beaucoup de parents dans cette situation, je me suis retrouvée très démunie face au manque d'accompagnement existant pour les adolescents dyslexiques.
+                        </p>
+                    </div>
+                    
+                    <p class="trans" data-fr="Face à cette situation, et en complément des dispositifs existants, j'ai commencé à adapter pour elle les méthodes de vulgarisation que j'utilisais déjà dans mon travail technologique. Cette démarche s'est appuyée à la fois sur mon expérience professionnelle, un travail de recherche approfondi, la lecture de publications académiques, et des travaux issus notamment de l'Université de Yale." data-en="I began to adapt for her the methods I already used in my technological work. This approach was based on my professional experience, in-depth research, academic publications, and work from Yale University.">
+                        Face à cette situation, et en complément des dispositifs existants, j'ai commencé à adapter pour elle les méthodes de vulgarisation que j'utilisais déjà dans mon travail technologique. Cette démarche s'est appuyée à la fois sur mon expérience professionnelle, un travail de recherche approfondi, la lecture de publications académiques, et des travaux issus notamment de l'Université de Yale.
+                    </p>
+                    
+                    <p class="trans" data-fr="La mise en place progressive de cette méthode a eu des effets très concrets : elle a permis à ma fille de mieux comprendre les concepts abordés à l'école, de retrouver de la confiance en ses capacités, et d'améliorer significativement ses résultats aux examens." data-en="The gradual implementation of this method had very concrete effects: it allowed my daughter to better understand concepts, regain confidence, and significantly improve her exam results.">
+                        <strong>La mise en place progressive de cette méthode a eu des effets très concrets :</strong> elle a permis à ma fille de mieux comprendre les concepts abordés à l'école, de retrouver de la confiance en ses capacités, et d'améliorer significativement ses résultats aux examens.
+                    </p>
+                    
+                    <p class="trans" data-fr="À partir de là, j'ai testé cette approche auprès des enfants d'amis, puis auprès de plusieurs familles francophones. Ces retours de terrain ont permis d'affiner la méthode et ont donné naissance à Déclic Dys." data-en="I tested this approach with friends' children, then with several French-speaking families. This feedback helped refine the method and gave birth to Déclic Dys.">
+                        À partir de là, j'ai testé cette approche auprès des enfants d'amis, puis auprès de plusieurs familles francophones. Ces retours de terrain ont permis d'affiner la méthode et ont donné naissance à Déclic Dys.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog / Articles -->
+    <section class="blog" id="blog">
+        <div class="section-content">
+            <h2 class="section-title trans" data-fr="Nos Articles" data-en="Our Articles">Nos Articles</h2>
+            <p class="section-subtitle trans" data-fr="Insights et réflexions sur la dyslexie et l'innovation" data-en="Insights and reflections on dyslexia and innovation">
+                Insights et réflexions sur la dyslexie et l'innovation
+            </p>
+            
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <div class="blog-card">
+                    <span class="blog-tag trans" data-fr="DIAGNOSTIC" data-en="DIAGNOSIS">DIAGNOSTIC</span>
+                    <h3 class="trans" data-fr="Le Diagnostic Tardif : Votre Super-Pouvoir Caché" data-en="Late Diagnosis: Your Hidden Superpower">Le Diagnostic Tardif : Votre Super-Pouvoir Caché</h3>
+                    <h4 class="trans" data-fr="15 ans, le diagnostic tombe : Et si c'était la meilleure nouvelle de l'année ?" data-en="Age 15, the diagnosis comes: What if it was the best news of the year?">15 ans, le diagnostic tombe : Et si c'était la meilleure nouvelle de l'année ?</h4>
+                    <p class="trans" data-fr="On vous a dit qu'il était 'lent'. On vous a dit qu'il 'ne faisait pas d'efforts'. Et puis, à 14 ou 16 ans, le mot est lâché : Dyslexique. En tant que maman, j'ai ressenti ce mélange de soulagement et de colère. Pourquoi si tard ? Mais mon expertise de 20 ans dans la technologie m'a appris une chose : un système qui bug n'est pas un système cassé, c'est un système qui a besoin d'une mise à jour." data-en="You were told he was 'slow'. You were told he 'wasn't trying'. And then, at 14 or 16, the word comes out: Dyslexic. As a mother, I felt this mixture of relief and anger. Why so late? But my 20 years of expertise in technology taught me one thing: a system that bugs is not a broken system, it's a system that needs an update.">
+                        On vous a dit qu'il était 'lent'. On vous a dit qu'il 'ne faisait pas d'efforts'. Et puis, à 14 ou 16 ans, le mot est lâché : Dyslexique. En tant que maman, j'ai ressenti ce mélange de soulagement et de colère. Pourquoi si tard ? Mais mon expertise de 20 ans dans la technologie m'a appris une chose : un système qui bug n'est pas un système cassé, c'est un système qui a besoin d'une mise à jour.
+                    </p>
+                    <p class="trans" data-fr="Saviez-vous qu'Albert Einstein n'a parlé qu'à 4 ans et lisait mal à 9 ans ? Son cerveau n'était pas lent, il était occupé à concevoir l'univers en images. Ce diagnostic tardif n'est pas un retard, c'est le moment du Reset. Avec l'IA et une méthode de vulgarisation, nous transformons ce 'handicap' en une signature cognitive unique." data-en="Did you know that Albert Einstein didn't speak until age 4 and read poorly at 9? His brain wasn't slow, it was busy designing the universe in images. This late diagnosis is not a delay, it's the moment of Reset. With AI and a simplified method, we transform this 'handicap' into a unique cognitive signature.">
+                        Saviez-vous qu'Albert Einstein n'a parlé qu'à 4 ans et lisait mal à 9 ans ? Son cerveau n'était pas lent, il était occupé à concevoir l'univers en images. Ce diagnostic tardif n'est pas un retard, c'est le moment du Reset. Avec l'IA et une méthode de vulgarisation, nous transformons ce 'handicap' en une signature cognitive unique.
+                    </p>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="blog-card">
+                    <span class="blog-tag trans" data-fr="TECHNOLOGIE" data-en="TECHNOLOGY">TECHNOLOGIE</span>
+                    <h3 class="trans" data-fr="L'IA, l'Exosquelette des Ados Dys-ruptifs" data-en="AI, the Exoskeleton of Dys-ruptive Teens">L'IA, l'Exosquelette des Ados Dys-ruptifs</h3>
+                    <h4 class="trans" data-fr="Pourquoi j'utilise l'IA de mon job de Tech pour hacker la scolarité de ma fille" data-en="Why I use AI from my Tech job to hack my daughter's education">Pourquoi j'utilise l'IA de mon job de Tech pour hacker la scolarité de ma fille</h4>
+                    <p class="trans" data-fr="Dans la tech, on cherche l'efficacité. Pourquoi passer 4 heures sur une tâche qu'une machine fait en 10 secondes ? Pour un ado dys, l'orthographe et la structure sont des murs. L'IA est le tunnel qui traverse le mur." data-en="In tech, we seek efficiency. Why spend 4 hours on a task that a machine does in 10 seconds? For a dyslexic teen, spelling and structure are walls. AI is the tunnel through the wall.">
+                        Dans la tech, on cherche l'efficacité. Pourquoi passer 4 heures sur une tâche qu'une machine fait en 10 secondes ? Pour un ado dys, l'orthographe et la structure sont des murs. L'IA est le tunnel qui traverse le mur.
+                    </p>
+                    <p class="trans" data-fr="Steve Jobs ne s'arrêtait pas aux détails techniques, il voyait le design global. C'est le don des dyslexiques : la vision macro. Ma méthode n'utilise pas l'IA pour 'tricher', mais comme un exosquelette. L'IA porte le poids (la rédaction), votre enfant fournit l'intelligence (les idées). C'est ainsi qu'on redonne confiance : en montrant à l'ado qu'il peut produire du contenu brillant sans être freiné." data-en="Steve Jobs didn't focus on technical details, he saw the big picture. This is the gift of dyslexics: macro vision. My method doesn't use AI to 'cheat', but as an exoskeleton. AI carries the weight (writing), your child provides the intelligence (ideas). This is how we restore confidence: by showing the teen they can produce brilliant content without being held back.">
+                        Steve Jobs ne s'arrêtait pas aux détails techniques, il voyait le design global. C'est le don des dyslexiques : la vision macro. Ma méthode n'utilise pas l'IA pour 'tricher', mais comme un exosquelette. L'IA porte le poids (la rédaction), votre enfant fournit l'intelligence (les idées). C'est ainsi qu'on redonne confiance : en montrant à l'ado qu'il peut produire du contenu brillant sans être freiné.
+                    </p>
+                </div>
+
+                <!-- Article 3 (Fausses croyances) -->
+                <div class="blog-card">
+                    <span class="blog-tag trans" data-fr="MINDSET" data-en="MINDSET">MINDSET</span>
+                    <h3 class="trans" data-fr="3 Fausses Croyances sur la Dyslexie" data-en="3 False Beliefs About Dyslexia">3 Fausses Croyances sur la Dyslexie</h3>
+                    
+                    <h4 class="trans" data-fr="1. 'La dyslexie est un problème de lecture'" data-en="1. 'Dyslexia is a reading problem'">1. "La dyslexie est un problème de lecture"</h4>
+                    <p class="trans" data-fr="La Vérité : C'est un problème de traitement de l'information. C'est comme essayer de lire un Mac avec un logiciel Windows. Le processeur est puissant, c'est juste le format qui diffère. Le soir où ma fille a compris la physique via un simulateur visuel plutôt qu'un texte, elle a eu 18/20. Le problème n'était pas son cerveau, c'était le support." data-en="The Truth: It's an information processing problem. It's like trying to read a Mac with Windows software. The processor is powerful, just the format differs. The night my daughter understood physics via a visual simulator rather than text, she got 18/20. The problem wasn't her brain, it was the medium.">
+                        <strong>La Vérité :</strong> C'est un problème de traitement de l'information. C'est comme essayer de lire un Mac avec un logiciel Windows. Le processeur est puissant, c'est juste le format qui diffère. Le soir où ma fille a compris la physique via un simulateur visuel plutôt qu'un texte, elle a eu 18/20. Le problème n'était pas son cerveau, c'était le support.
+                    </p>
+                    
+                    <h4 class="trans" data-fr="2. 'L'IA va rendre les Dys paresseux'" data-en="2. 'AI will make Dyslexics lazy'">2. "L'IA va rendre les Dys paresseux"</h4>
+                    <p class="trans" data-fr="La Vérité : L'IA libère leur charge mentale. Est-ce qu'on dit d'un architecte qu'il est paresseux parce qu'il utilise un logiciel 3D au lieu d'un crayon ? Grâce à mes prompts adaptés, ma fille a écrit sa première rédaction sans une seule larme. La fierté dans ses yeux valait tous les logiciels du monde." data-en="The Truth: AI frees their mental load. Do we say an architect is lazy because he uses 3D software instead of a pencil? Thanks to my adapted prompts, my daughter wrote her first essay without a single tear. The pride in her eyes was worth all the software in the world.">
+                        <strong>La Vérité :</strong> L'IA libère leur charge mentale. Est-ce qu'on dit d'un architecte qu'il est paresseux parce qu'il utilise un logiciel 3D au lieu d'un crayon ? Grâce à mes prompts adaptés, ma fille a écrit sa première rédaction sans une seule larme. La fierté dans ses yeux valait tous les logiciels du monde.
+                    </p>
+                    
+                    <h4 class="trans" data-fr="3. 'C'est trop tard pour changer leur mindset'" data-en="3. 'It's too late to change their mindset'">3. "C'est trop tard pour changer leur mindset"</h4>
+                    <p class="trans" data-fr="La Vérité : Le cerveau des ados est en pleine plasticité. Richard Branson (Virgin) a raté son école. Il a créé son empire parce qu'il a appris à déléguer ce qu'il ne savait pas faire. Le diagnostic à 15 ans a été son électrochoc. Elle a compris qu'elle n'était pas nulle, elle était différente. C'est le début de la gagne." data-en="The Truth: The teenage brain is in full plasticity. Richard Branson (Virgin) failed school. He created his empire because he learned to delegate what he couldn't do. The diagnosis at 15 was her wake-up call. She understood she wasn't bad, she was different. That's the beginning of winning.">
+                        <strong>La Vérité :</strong> Le cerveau des ados est en pleine plasticité. Richard Branson (Virgin) a raté son école. Il a créé son empire parce qu'il a appris à déléguer ce qu'il ne savait pas faire. Le diagnostic à 15 ans a été son électrochoc. Elle a compris qu'elle n'était pas différente. C'est le début de la gagne.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-content">
+            <h2 class="section-title trans" data-fr="Nos Services" data-en="Our Services">Nos Services</h2>
+            <p class="section-subtitle trans" data-fr="Un accompagnement complet pour transformer la différence en force" data-en="Complete support to transform difference into strength">
+                Un accompagnement complet pour transformer la différence en force
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="trans" data-fr="Accompagnement Individuel" data-en="Individual Coaching">Accompagnement Individuel</h3>
+                    <p class="trans" data-fr="Coaching personnalisé pour adolescents (dès 12 ans) et adultes dys. Méthodes de vulgarisation adaptées et outils technologiques innovants." data-en="Personalized coaching for teenagers (from age 12) and adults with dyslexia. Adapted methods and innovative technological tools.">
+                        Coaching personnalisé pour adolescents (dès 12 ans) et adultes dys. Méthodes de vulgarisation adaptées et outils technologiques innovants.
+                    </p>
+                    <div class="service-price">CHF 150 / heure</div>
+                    <div class="service-note trans" data-fr="Disponible en français et anglais" data-en="Available in French and English">Disponible en français et anglais</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3 class="trans" data-fr="Accompagnement Groupe" data-en="Group Coaching">Accompagnement Groupe</h3>
+                    <p class="trans" data-fr="Sessions en petit groupe (maximum 4 personnes) pour partager et progresser ensemble." data-en="Small group sessions (maximum 4 people) to share and progress together.">
+                        Sessions en petit groupe (maximum 4 personnes) pour partager et progresser ensemble.
+                    </p>
+                    <div class="service-price trans" data-fr="Sur devis" data-en="On quote">Sur devis</div>
+                    <div class="service-note trans" data-fr="Tarif dégressif selon le nombre" data-en="Reduced rate by number">Tarif dégressif selon le nombre</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3 class="trans" data-fr="Formation IA & Outils" data-en="AI & Tools Training">Formation IA & Outils</h3>
+                    <p class="trans" data-fr="Maîtrisez l'intelligence artificielle comme exosquelette cognitif. Prompts adaptés et outils transformationnels." data-en="Master artificial intelligence as a cognitive exoskeleton. Adapted prompts and transformational tools.">
+                        Maîtrisez l'intelligence artificielle comme exosquelette cognitif. Prompts adaptés et outils transformationnels.
+                    </p>
+                    <div class="service-price">CHF 400</div>
+                    <div class="service-note trans" data-fr="En français ou anglais" data-en="In French or English">En français ou anglais</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3 class="trans" data-fr="Sensibilisation Professionnelle" data-en="Professional Awareness">Sensibilisation Professionnelle</h3>
+                    <p class="trans" data-fr="Formations pour écoles, entreprises et institutions francophones. Créons ensemble un environnement inclusif." data-en="Training for French-speaking schools, companies and institutions. Creating inclusive environments together.">
+                        Formations pour écoles, entreprises et institutions francophones. Créons ensemble un environnement inclusif.
+                    </p>
+                    <div class="service-price trans" data-fr="Sur devis" data-en="On quote">Sur devis</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3 class="trans" data-fr="Ressources Pédagogiques" data-en="Educational Resources">Ressources Pédagogiques</h3>
+                    <p class="trans" data-fr="Supports adaptés, guides pratiques et outils téléchargeables spécialement conçus." data-en="Adapted materials, practical guides and specially designed downloadable tools.">
+                        Supports adaptés, guides pratiques et outils téléchargeables spécialement conçus.
+                    </p>
+                    <div class="service-price">CHF 30-50 / ressource</div>
+                    <div class="service-note trans" data-fr="Accès privilégié membres" data-en="Priority access members">Accès privilégié membres</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3 class="trans" data-fr="Programme Mindset Reset" data-en="Mindset Reset Program">Programme Mindset Reset</h3>
+                    <p class="trans" data-fr="Programme intensif pour transformer le regard sur les troubles dys. Comprendre que vous êtes différent, développer vos forces." data-en="Intensive program to transform perspectives on dyslexia. Understand you're different, develop your strengths.">
+                        Programme intensif pour transformer le regard sur les troubles dys. Comprendre que vous êtes différent, développer vos forces.
+                    </p>
+                    <div class="service-price">CHF 800</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops -->
     <section class="workshops" id="workshops">
         <div class="section-content">
-            <h2 class="section-title translate" data-fr="Nos Workshops" data-en="Our Workshops">Nos Workshops</h2>
-            <p class="section-subtitle translate" data-fr="Réservez votre place pour nos ateliers pratiques" data-en="Book your spot for our practical workshops">Réservez votre place pour nos ateliers pratiques</p>
+            <h2 class="section-title trans" data-fr="Nos Workshops" data-en="Our Workshops">Nos Workshops</h2>
+            <p class="section-subtitle trans" data-fr="Ateliers pratiques en petits groupes (maximum 4 personnes)" data-en="Practical workshops in small groups (maximum 4 people)">
+                Ateliers pratiques en petits groupes (maximum 4 personnes)
+            </p>
             
             <div class="workshop-card">
                 <div class="workshop-header">
                     <div class="workshop-info">
-                        <h4 class="translate" data-fr="Maîtriser l'IA pour les Dys" data-en="Master AI for Dyslexia">Maîtriser l'IA pour les Dys</h4>
-                        <p class="translate" data-fr="Atelier intensif de 3 heures. Apprenez à utiliser ChatGPT, Claude et autres outils IA comme assistants personnels. Groupe max 4 personnes." data-en="Intensive 3-hour workshop. Learn to use ChatGPT, Claude and other AI tools as personal assistants. Max 4 people per group.">Atelier intensif de 3 heures. Apprenez à utiliser ChatGPT, Claude et autres outils IA comme assistants personnels. Groupe max 4 personnes.</p>
+                        <h4 class="trans" data-fr="Maîtriser l'IA pour les Dys" data-en="Master AI for Dyslexia">Maîtriser l'IA pour les Dys</h4>
+                        <p class="trans" data-fr="Apprenez à utiliser ChatGPT, Claude et autres outils IA comme assistants personnels adaptés. Workshop intensif, max 4 personnes." data-en="Learn to use ChatGPT, Claude and other AI tools as adapted personal assistants. Intensive workshop, max 4 people.">
+                            Apprenez à utiliser ChatGPT, Claude et autres outils IA comme assistants personnels adaptés. Workshop intensif, max 4 personnes.
+                        </p>
                     </div>
                     <div class="workshop-details">
                         <div class="price">CHF 250</div>
-                        <div class="duration">3 heures</div>
-                        <button class="btn-primary" onclick="toggleCalendar('cal1')"><span class="translate" data-fr="Réserver" data-en="Book">Réserver</span></button>
+                        <button class="btn-primary" onclick="toggleCal()"><span class="trans" data-fr="Réserver" data-en="Book">Réserver</span></button>
                     </div>
                 </div>
                 
@@ -680,48 +518,45 @@
                         <div class="calendar-day header">Ven</div>
                         <div class="calendar-day header">Sam</div>
                         <div class="calendar-day header">Dim</div>
-                        
                         <div class="calendar-day"></div>
                         <div class="calendar-day"></div>
                         <div class="calendar-day"></div>
                         <div class="calendar-day"></div>
                         <div class="calendar-day"></div>
-                        <div class="calendar-day available" onclick="selectDate(this, '1 Mars')">1</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '2 Mars')">2</div>
-                        
-                        <div class="calendar-day available" onclick="selectDate(this, '3 Mars')">3</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'1 Mars')">1</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'2 Mars')">2</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'3 Mars')">3</div>
                         <div class="calendar-day booked">4</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '5 Mars')">5</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '6 Mars')">6</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'5 Mars')">5</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'6 Mars')">6</div>
                         <div class="calendar-day booked">7</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '8 Mars')">8</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '9 Mars')">9</div>
-                        
-                        <div class="calendar-day available" onclick="selectDate(this, '10 Mars')">10</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '11 Mars')">11</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'8 Mars')">8</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'9 Mars')">9</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'10 Mars')">10</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'11 Mars')">11</div>
                         <div class="calendar-day booked">12</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '13 Mars')">13</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '14 Mars')">14</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '15 Mars')">15</div>
-                        <div class="calendar-day available" onclick="selectDate(this, '16 Mars')">16</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'13 Mars')">13</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'14 Mars')">14</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'15 Mars')">15</div>
+                        <div class="calendar-day available" onclick="selectDate(this,'16 Mars')">16</div>
                     </div>
                     
-                    <div class="booking-form" id="bookingForm1">
-                        <h5 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem;" class="translate" data-fr="Confirmer votre réservation" data-en="Confirm your booking">Confirmer votre réservation</h5>
-                        <p style="margin-bottom: 1.5rem; font-size: 1.1rem;"><span class="translate" data-fr="Date sélectionnée :" data-en="Selected date:">Date sélectionnée :</span> <strong id="selectedDate1"></strong></p>
+                    <div class="booking-form" id="bookForm">
+                        <h5 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem;" class="trans" data-fr="Confirmer votre réservation" data-en="Confirm booking">Confirmer votre réservation</h5>
+                        <p style="margin-bottom: 1.5rem;"><span class="trans" data-fr="Date :" data-en="Date:">Date :</span> <strong id="selDate"></strong></p>
                         <div class="form-group">
-                            <label for="bookingName1" class="translate" data-fr="Votre nom complet" data-en="Your full name">Votre nom complet</label>
-                            <input type="text" id="bookingName1" required>
+                            <label class="trans" data-fr="Nom complet" data-en="Full name">Nom complet</label>
+                            <input type="text" id="bName">
                         </div>
                         <div class="form-group">
-                            <label for="bookingEmail1" class="translate" data-fr="Votre email" data-en="Your email">Votre email</label>
-                            <input type="email" id="bookingEmail1" required>
+                            <label>Email</label>
+                            <input type="email" id="bEmail">
                         </div>
                         <div class="form-group">
-                            <label for="bookingPhone1" class="translate" data-fr="Votre téléphone" data-en="Your phone">Votre téléphone</label>
-                            <input type="tel" id="bookingPhone1" required>
+                            <label class="trans" data-fr="Téléphone" data-en="Phone">Téléphone</label>
+                            <input type="tel" id="bPhone">
                         </div>
-                        <button class="submit-btn" onclick="submitBooking()"><span class="translate" data-fr="Confirmer - CHF 250" data-en="Confirm - CHF 250">Confirmer - CHF 250</span></button>
+                        <button class="submit-btn" onclick="submitBook()"><span class="trans" data-fr="Confirmer - CHF 250" data-en="Confirm - CHF 250">Confirmer - CHF 250</span></button>
                     </div>
                 </div>
             </div>
@@ -729,13 +564,14 @@
             <div class="workshop-card">
                 <div class="workshop-header">
                     <div class="workshop-info">
-                        <h4 class="translate" data-fr="Stratégies d'Apprentissage Visuel" data-en="Visual Learning Strategies">Stratégies d'Apprentissage Visuel</h4>
-                        <p class="translate" data-fr="Transformez des concepts complexes en schémas et cartes mentales adaptés. 2h30 en groupe (max 4)." data-en="Transform complex concepts into adapted diagrams and mind maps. 2.5h in group (max 4).">Transformez des concepts complexes en schémas et cartes mentales adaptés. 2h30 en groupe (max 4).</p>
+                        <h4 class="trans" data-fr="Stratégies d'Apprentissage Visuel" data-en="Visual Learning Strategies">Stratégies d'Apprentissage Visuel</h4>
+                        <p class="trans" data-fr="Transformez des concepts complexes en schémas et cartes mentales adaptés. Maximum 4 personnes." data-en="Transform complex concepts into adapted diagrams and mind maps. Maximum 4 people.">
+                            Transformez des concepts complexes en schémas et cartes mentales adaptés. Maximum 4 personnes.
+                        </p>
                     </div>
                     <div class="workshop-details">
                         <div class="price">CHF 200</div>
-                        <div class="duration">2h30</div>
-                        <a href="#adhesion" class="btn-primary"><span class="translate" data-fr="Nous contacter" data-en="Contact us">Nous contacter</span></a>
+                        <a href="#adhesion" class="btn-primary"><span class="trans" data-fr="Nous contacter" data-en="Contact">Nous contacter</span></a>
                     </div>
                 </div>
             </div>
@@ -743,210 +579,230 @@
             <div class="workshop-card">
                 <div class="workshop-header">
                     <div class="workshop-info">
-                        <h4 class="translate" data-fr="Confiance et Performance" data-en="Confidence and Performance">Confiance et Performance</h4>
-                        <p class="translate" data-fr="Retrouvez confiance et développez des stratégies de réussite adaptées. 4 heures, groupe max 4." data-en="Regain confidence and develop adapted success strategies. 4 hours, max 4 per group.">Retrouvez confiance et développez des stratégies de réussite adaptées. 4 heures, groupe max 4.</p>
+                        <h4 class="trans" data-fr="Confiance et Performance" data-en="Confidence & Performance">Confiance et Performance</h4>
+                        <p class="trans" data-fr="Retrouvez confiance en vos capacités et développez des stratégies de réussite. Maximum 4 personnes." data-en="Regain confidence in your abilities and develop success strategies. Maximum 4 people.">
+                            Retrouvez confiance en vos capacités et développez des stratégies de réussite. Maximum 4 personnes.
+                        </p>
                     </div>
                     <div class="workshop-details">
                         <div class="price">CHF 300</div>
-                        <div class="duration">4 heures</div>
-                        <a href="#adhesion" class="btn-primary"><span class="translate" data-fr="Nous contacter" data-en="Contact us">Nous contacter</span></a>
+                        <a href="#adhesion" class="btn-primary"><span class="trans" data-fr="Nous contacter" data-en="Contact">Nous contacter</span></a>
                     </div>
                 </div>
             </div>
+            
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; color: #666;">
+                <span class="trans" data-fr="📧 Pour les groupes constitués ou demandes sur-mesure, contactez-nous pour un devis." data-en="📧 For pre-formed groups or custom requests, contact us for a quote.">
+                    📧 Pour les groupes constitués ou demandes sur-mesure, contactez-nous pour un devis.
+                </span>
+            </p>
         </div>
     </section>
 
+    <!-- Adhésion -->
     <section class="adhesion" id="adhesion">
         <div class="section-content">
-            <h2 class="section-title translate" data-fr="Devenez Membre" data-en="Become a Member">Devenez Membre</h2>
-            <p class="section-subtitle translate" data-fr="Rejoignez notre communauté francophone et accédez à tous nos services" data-en="Join our French-speaking community and access all our services">Rejoignez notre communauté francophone et accédez à tous nos services</p>
+            <h2 class="section-title trans" data-fr="Devenez Membre" data-en="Become a Member">Devenez Membre</h2>
+            <p class="section-subtitle trans" data-fr="Rejoignez notre communauté francophone" data-en="Join our French-speaking community">
+                Rejoignez notre communauté francophone
+            </p>
             
             <div class="form-container">
-                <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.8rem;" class="translate" data-fr="Formulaire d'Adhésion" data-en="Membership Form">Formulaire d'Adhésion</h3>
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.8rem;" class="trans" data-fr="Formulaire d'Adhésion" data-en="Membership Form">Formulaire d'Adhésion</h3>
                 
                 <div style="background: var(--light); padding: 2rem; border-radius: 15px; margin-bottom: 3rem;">
-                    <h4 style="color: var(--primary); margin-bottom: 1rem;" class="translate" data-fr="Cotisations Annuelles :" data-en="Annual Membership Fees:">Cotisations Annuelles :</h4>
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;" class="trans" data-fr="Cotisations Annuelles :" data-en="Annual Fees:">Cotisations Annuelles :</h4>
                     <ul style="list-style: none; font-size: 1.2rem;">
-                        <li style="margin-bottom: 0.8rem;"><strong class="translate" data-fr="Membre Actif :" data-en="Active Member:">Membre Actif :</strong> CHF 150 / an</li>
-                        <li style="margin-bottom: 0.8rem;"><strong class="translate" data-fr="Membre de Soutien :" data-en="Supporting Member:">Membre de Soutien :</strong> CHF 80 / an</li>
-                        <li style="margin-bottom: 0.8rem;"><strong class="translate" data-fr="Membre Étudiant :" data-en="Student Member:">Membre Étudiant :</strong> CHF 50 / an</li>
-                        <li><strong class="translate" data-fr="Membre d'Honneur :" data-en="Honorary Member:">Membre d'Honneur :</strong> <span class="translate" data-fr="Gratuit (sur décision du comité)" data-en="Free (by committee decision)">Gratuit (sur décision du comité)</span></li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Membre Actif :</strong> CHF 150 / an</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Membre de Soutien :</strong> CHF 80 / an</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Membre Étudiant :</strong> CHF 50 / an</li>
+                        <li><strong>Membre d'Honneur :</strong> <span class="trans" data-fr="Gratuit (décision comité)" data-en="Free (committee decision)">Gratuit (décision comité)</span></li>
                     </ul>
                 </div>
 
                 <div class="payment-info">
-                    <h4>💳 <span class="translate" data-fr="Informations de Paiement" data-en="Payment Information">Informations de Paiement</span></h4>
+                    <h4>💳 <span class="trans" data-fr="Informations de Paiement" data-en="Payment Info">Informations de Paiement</span></h4>
                     <div class="payment-methods">
                         <div class="payment-method">
-                            <h5 class="translate" data-fr="Virement Bancaire" data-en="Bank Transfer">Virement Bancaire</h5>
+                            <h5 class="trans" data-fr="Virement Bancaire" data-en="Bank Transfer">Virement Bancaire</h5>
                             <p style="margin-bottom: 0.5rem;">IBAN :</p>
                             <div class="iban-display">CH57 7452 0332 6953 21</div>
                             <p style="font-size: 0.9rem; color: #666;">Association Déclic Dys</p>
                         </div>
                         <div class="payment-method">
-                            <h5 class="translate" data-fr="Paiement Revolut" data-en="Revolut Payment">Paiement Revolut</h5>
-                            <p style="margin-bottom: 1rem;" class="translate" data-fr="Scannez le QR code :" data-en="Scan the QR code:">Scannez le QR code :</p>
-                            <img src="qr-revolut.jpg" alt="QR Code Revolut" class="qr-code">
+                            <h5 class="trans" data-fr="Paiement Revolut" data-en="Revolut Payment">Paiement Revolut</h5>
+                            <p style="margin-bottom: 1rem;" class="trans" data-fr="Scannez le QR :" data-en="Scan QR:">Scannez le QR :</p>
+                            <img src="qr-revolut.jpg" alt="QR Revolut" class="qr-code">
                         </div>
                     </div>
                 </div>
 
-                <form id="membershipForm">
+                <form id="memForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="prenom" class="translate" data-fr="Prénom" data-en="First Name">Prénom</label>
-                            <input type="text" id="prenom" name="prenom" required>
+                            <label class="trans" data-fr="Prénom" data-en="First Name">Prénom</label>
+                            <input type="text" required>
                         </div>
                         <div class="form-group">
-                            <label for="nom" class="translate" data-fr="Nom" data-en="Last Name">Nom</label>
-                            <input type="text" id="nom" name="nom" required>
+                            <label class="trans" data-fr="Nom" data-en="Last Name">Nom</label>
+                            <input type="text" required>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <label>Email</label>
+                        <input type="email" required>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="telephone" class="translate" data-fr="Téléphone" data-en="Phone">Téléphone</label>
-                            <input type="tel" id="telephone" name="telephone">
+                            <label class="trans" data-fr="Téléphone" data-en="Phone">Téléphone</label>
+                            <input type="tel">
                         </div>
                         <div class="form-group">
-                            <label for="ville" class="translate" data-fr="Ville" data-en="City">Ville</label>
-                            <input type="text" id="ville" name="ville" required>
+                            <label class="trans" data-fr="Ville" data-en="City">Ville</label>
+                            <input type="text" required>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label for="type_membre" class="translate" data-fr="Type de membre souhaité" data-en="Desired membership type">Type de membre souhaité</label>
-                        <select id="type_membre" name="type_membre" required>
-                            <option value="" class="translate" data-fr="Sélectionnez..." data-en="Select...">Sélectionnez...</option>
-                            <option value="actif" class="translate" data-fr="Membre Actif - CHF 150/an" data-en="Active Member - CHF 150/year">Membre Actif - CHF 150/an</option>
-                            <option value="soutien" class="translate" data-fr="Membre de Soutien - CHF 80/an" data-en="Supporting Member - CHF 80/year">Membre de Soutien - CHF 80/an</option>
-                            <option value="etudiant" class="translate" data-fr="Membre Étudiant - CHF 50/an" data-en="Student Member - CHF 50/year">Membre Étudiant - CHF 50/an</option>
+                        <label class="trans" data-fr="Type de membre" data-en="Membership type">Type de membre</label>
+                        <select required>
+                            <option value="">Sélectionnez...</option>
+                            <option value="actif">Membre Actif - CHF 150/an</option>
+                            <option value="soutien">Membre de Soutien - CHF 80/an</option>
+                            <option value="etudiant">Membre Étudiant - CHF 50/an</option>
                         </select>
                     </div>
-
                     <div class="form-group">
-                        <label for="profil" class="translate" data-fr="Votre profil" data-en="Your profile">Votre profil</label>
-                        <select id="profil" name="profil" required>
-                            <option value="" class="translate" data-fr="Sélectionnez..." data-en="Select...">Sélectionnez...</option>
-                            <option value="parent" class="translate" data-fr="Parent d'enfant/ado dys" data-en="Parent of child/teen with dyslexia">Parent d'enfant/ado dys</option>
-                            <option value="adulte" class="translate" data-fr="Adulte dys" data-en="Adult with dyslexia">Adulte dys</option>
-                            <option value="professionnel" class="translate" data-fr="Professionnel (enseignant, thérapeute, etc.)" data-en="Professional (teacher, therapist, etc.)">Professionnel (enseignant, thérapeute, etc.)</option>
-                            <option value="ecole" class="translate" data-fr="Établissement scolaire" data-en="Educational institution">Établissement scolaire</option>
-                            <option value="institution" class="translate" data-fr="Institution" data-en="Institution">Institution</option>
-                            <option value="entreprise" class="translate" data-fr="Entreprise" data-en="Company">Entreprise</option>
-                            <option value="autre" class="translate" data-fr="Autre" data-en="Other">Autre</option>
+                        <label class="trans" data-fr="Votre profil" data-en="Your profile">Votre profil</label>
+                        <select required>
+                            <option value="">Sélectionnez...</option>
+                            <option value="parent">Parent</option>
+                            <option value="adulte">Adulte dys</option>
+                            <option value="pro">Professionnel</option>
+                            <option value="ecole">École</option>
+                            <option value="institution">Institution</option>
+                            <option value="entreprise">Entreprise</option>
+                            <option value="autre">Autre</option>
                         </select>
                     </div>
-
                     <div class="form-group">
-                        <label for="besoins" class="translate" data-fr="Vos besoins et attentes" data-en="Your needs and expectations">Vos besoins et attentes</label>
-                        <textarea id="besoins" name="besoins" class="translate" data-fr placeholder="Parlez-nous de votre situation..." data-en placeholder="Tell us about your situation..."></textarea>
+                        <label class="trans" data-fr="Vos besoins" data-en="Your needs">Vos besoins</label>
+                        <textarea></textarea>
                     </div>
-
                     <div class="checkbox-group">
                         <label>
-                            <input type="checkbox" name="newsletter" value="oui">
-                            <span class="translate" data-fr="Je souhaite recevoir la newsletter" data-en="I want to receive the newsletter">Je souhaite recevoir la newsletter</span>
+                            <input type="checkbox">
+                            <span class="trans" data-fr="Newsletter" data-en="Newsletter">Newsletter</span>
                         </label>
                         <label>
-                            <input type="checkbox" name="rgpd" required>
-                            <span class="translate" data-fr="J'accepte la politique de confidentialité (RGPD)" data-en="I accept the privacy policy (GDPR)">J'accepte la politique de confidentialité (RGPD)</span>
+                            <input type="checkbox" required>
+                            <span class="trans" data-fr="J'accepte (RGPD)" data-en="I accept (GDPR)">J'accepte (RGPD)</span>
                         </label>
                     </div>
-
-                    <button type="submit" class="submit-btn translate" data-fr="Envoyer ma demande d'adhésion" data-en="Send my membership request">Envoyer ma demande d'adhésion</button>
+                    <button type="submit" class="submit-btn trans" data-fr="Envoyer" data-en="Send">Envoyer</button>
                 </form>
 
-                <div id="successMessage" class="success-message">
-                    <h3 style="margin-bottom: 1rem;">✅ <span class="translate" data-fr="Merci !" data-en="Thank you!">Merci !</span></h3>
-                    <p class="translate" data-fr="Nous vous contactons bientôt." data-en="We will contact you soon.">Nous vous contactons bientôt.</p>
+                <div id="successMsg" class="success-message">
+                    <h3 style="margin-bottom: 1rem;">✅ <span class="trans" data-fr="Merci !" data-en="Thank you!">Merci !</span></h3>
+                    <p class="trans" data-fr="Nous vous contactons bientôt." data-en="We'll contact you soon.">Nous vous contactons bientôt.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Déclic Dys | <span class="translate" data-fr="Présidente: Margaïd Tanneau Jallet | Secrétaire & Trésorière: Élodie Jallet" data-en="President: Margaïd Tanneau Jallet | Secretary & Treasurer: Élodie Jallet">Présidente: Margaïd Tanneau Jallet | Secrétaire & Trésorière: Élodie Jallet</span></p>
-        <p style="margin-top: 1rem;">Rue du Nant 23, CH-1207 Genève | IBAN: CH57 7452 0332 6953 21</p>
-        <p style="margin-top: 0.5rem;" class="translate" data-fr="🌍 Association francophone pour adolescents (dès 12 ans) et adultes dys" data-en="🌍 French-speaking association for teenagers (from age 12) and adults with dyslexia">🌍 Association francophone pour adolescents (dès 12 ans) et adultes dys</p>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Déclic<span>Dys</span></h3>
+                <p class="trans" data-fr="Association francophone à but non lucratif. Nous donnons aux esprits atypiques les clés de leur excellence." data-en="French-speaking non-profit association. We give atypical minds the keys to their excellence.">
+                    Association francophone à but non lucratif. Nous donnons aux esprits atypiques les clés de leur excellence.
+                </p>
+                <p style="margin-top: 1.5rem;"><strong>Siège :</strong> Rue du Nant 23, CH-1207 Genève</p>
+                <p style="margin-top: 0.5rem;"><strong>IBAN :</strong> CH57 7452 0332 6953 21</p>
+            </div>
+
+            <div class="footer-links">
+                <h4 class="trans" data-fr="Navigation" data-en="Navigation">Navigation</h4>
+                <ul>
+                    <li><a href="#stats">Mission</a></li>
+                    <li><a href="#histoire" class="trans" data-fr="Notre Histoire" data-en="Our Story">Notre Histoire</a></li>
+                    <li><a href="#blog">Articles</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#workshops">Workshops</a></li>
+                    <li><a href="#adhesion" class="trans" data-fr="Adhésion" data-en="Join">Adhésion</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:contact@declicdys.com">contact@declicdys.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Déclic Dys | Présidente: Margaïd Tanneau Jallet | Secrétaire & Trésorière: Élodie Jallet</p>
+            <p style="margin-top: 0.5rem;" class="trans" data-fr="Association francophone pour adolescents (dès 12 ans) et adultes dys | Formations FR/EN" data-en="French-speaking association for teenagers (from 12) and adults with dyslexia | Training FR/EN">
+                Association francophone pour adolescents (dès 12 ans) et adultes dys | Formations FR/EN
+            </p>
+        </div>
     </footer>
 
     <script>
-        let currentLang = 'fr';
-
-        function switchLang(lang) {
-            currentLang = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            document.querySelectorAll('.translate').forEach(el => {
-                const text = el.getAttribute('data-' + lang);
-                if (text) {
+        let lang = 'fr';
+        function toggleLang() {
+            lang = lang === 'fr' ? 'en' : 'fr';
+            document.querySelectorAll('.trans').forEach(el => {
+                const txt = el.getAttribute('data-' + lang);
+                if (txt) {
                     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = text;
-                    } else if (el.tagName === 'OPTION') {
-                        el.textContent = text;
+                        el.placeholder = txt;
                     } else {
-                        el.textContent = text;
+                        el.textContent = txt;
                     }
                 }
             });
+            document.querySelector('.lang-btn').textContent = lang === 'fr' ? '🌐 EN' : '🌐 FR';
         }
-
-        // Calendrier
-        function toggleCalendar(calId) {
-            const cal = document.getElementById(calId);
-            cal.classList.toggle('active');
+        
+        function toggleCal() {
+            document.getElementById('cal1').classList.toggle('active');
         }
-
-        let selectedDateGlobal = '';
-
-        function selectDate(element, date) {
-            document.querySelectorAll('.calendar-day.available').forEach(day => {
-                day.classList.remove('selected');
-            });
-            element.classList.add('selected');
-            selectedDateGlobal = date + ' 2026';
-            document.getElementById('selectedDate1').textContent = selectedDateGlobal;
-            document.getElementById('bookingForm1').classList.add('active');
+        
+        let selD = '';
+        function selectDate(el, date) {
+            document.querySelectorAll('.calendar-day.available').forEach(d => d.classList.remove('selected'));
+            el.classList.add('selected');
+            selD = date + ' 2026';
+            document.getElementById('selDate').textContent = selD;
+            document.getElementById('bookForm').classList.add('active');
         }
-
-        function submitBooking() {
-            const name = document.getElementById('bookingName1').value;
-            const email = document.getElementById('bookingEmail1').value;
-            const phone = document.getElementById('bookingPhone1').value;
-            
-            if (name && email && phone && selectedDateGlobal) {
-                const msg = currentLang === 'fr' 
-                    ? `✅ Réservation confirmée !\n\nDate: ${selectedDateGlobal}\nNom: ${name}\nEmail: ${email}\n\nVous recevrez un email de confirmation.`
-                    : `✅ Booking confirmed!\n\nDate: ${selectedDateGlobal}\nName: ${name}\nEmail: ${email}\n\nYou will receive a confirmation email.`;
-                alert(msg);
-                document.getElementById('bookingForm1').classList.remove('active');
+        
+        function submitBook() {
+            const n = document.getElementById('bName').value;
+            const e = document.getElementById('bEmail').value;
+            const p = document.getElementById('bPhone').value;
+            if (n && e && p && selD) {
+                alert((lang === 'fr' ? '✅ Réservation confirmée !\nDate: ' : '✅ Booking confirmed!\nDate: ') + selD);
+                document.getElementById('bookForm').classList.remove('active');
                 document.getElementById('cal1').classList.remove('active');
             } else {
-                alert(currentLang === 'fr' ? '❌ Veuillez remplir tous les champs' : '❌ Please fill all fields');
+                alert(lang === 'fr' ? '❌ Remplissez tout' : '❌ Fill all');
             }
         }
-
-        // Formulaire adhésion
-        document.getElementById('membershipForm').addEventListener('submit', function(e) {
+        
+        document.getElementById('memForm').addEventListener('submit', function(e) {
             e.preventDefault();
             this.style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
-            window.scrollTo({ top: document.getElementById('successMessage').offsetTop - 100, behavior: 'smooth' });
+            document.getElementById('successMsg').style.display = 'block';
         });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
