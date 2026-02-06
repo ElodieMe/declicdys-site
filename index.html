@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Déclic Dys - Association Genevoise pour les Troubles Dys</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <title>Déclic Dys - Parce que penser autrement ne devrait jamais empêcher de réussir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'OpenDyslexic';
+            src: url('https://cdn.jsdelivr.net/npm/opendyslexic@2.0.1/fonts/OpenDyslexic-Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'OpenDyslexic';
+            src: url('https://cdn.jsdelivr.net/npm/opendyslexic@2.0.1/fonts/OpenDyslexic-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -23,11 +37,12 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'OpenDyslexic', 'Open Sans', sans-serif;
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.8;
             background: var(--light);
             overflow-x: hidden;
+            font-size: 18px;
         }
 
         /* Navigation */
@@ -40,18 +55,6 @@
             z-index: 1000;
             padding: 1.5rem 5%;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            animation: slideDown 0.6s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         .nav-container {
@@ -64,10 +67,9 @@
 
         .logo {
             font-size: 2rem;
-            font-weight: 800;
+            font-weight: bold;
             color: var(--primary);
             text-decoration: none;
-            letter-spacing: -1px;
         }
 
         .logo span {
@@ -83,24 +85,12 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text);
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s ease;
-            position: relative;
         }
 
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover:after {
-            width: 100%;
+        .nav-links a:hover {
+            color: var(--secondary);
         }
 
         .cta-btn {
@@ -109,358 +99,333 @@
             padding: 0.8rem 2rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(45, 95, 124, 0.2);
+            font-weight: bold;
+            transition: transform 0.3s ease;
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(45, 95, 124, 0.3);
         }
 
         /* Hero Section */
         .hero {
             margin-top: 80px;
-            padding: 8rem 5% 6rem;
+            padding: 6rem 5%;
             background: var(--gradient);
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(244, 211, 94, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-50px, 50px) rotate(180deg); }
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+            text-align: center;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
+            font-size: 3.5rem;
+            font-weight: bold;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-            display: block;
-            font-size: 5.5rem;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
             opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .hero-buttons {
+            display: flex;
             gap: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .stat {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .btn-primary, .btn-secondary {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 0.5rem;
-        }
-
-        /* Mission Section */
-        .mission {
-            padding: 6rem 5%;
+        .btn-primary {
             background: white;
+            color: var(--primary);
         }
 
-        .mission-content {
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section commune */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-content {
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-tag {
-            display: inline-block;
-            color: var(--secondary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
         .section-title {
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: 2.8rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-align: center;
         }
 
         .section-subtitle {
             font-size: 1.3rem;
             color: #666;
-            max-width: 700px;
-            margin: 0 auto;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
         }
 
-        .features-grid {
+        /* Notre Histoire */
+        .notre-histoire {
+            background: white;
+        }
+
+        .histoire-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .histoire-photo {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .histoire-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .histoire-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .histoire-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            padding: 2rem;
+            border-left: 5px solid var(--secondary);
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        /* Nos Services */
+        .services {
+            background: var(--light);
+        }
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
-        .feature-card {
-            background: var(--light);
+        .service-card {
+            background: white;
             padding: 3rem;
             border-radius: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
 
-        .feature-card:hover {
+        .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent);
         }
 
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .feature-card h3 {
+        .service-card h3 {
             font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 1rem;
-            font-weight: 700;
         }
 
-        .feature-card p {
+        .service-card p {
             color: #666;
             line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
 
-        /* Articles Section */
-        .articles {
-            padding: 6rem 5%;
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-top: 1.5rem;
+        }
+
+        /* Workshops */
+        .workshops {
+            background: white;
+        }
+
+        .workshop-card {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .workshop-info h4 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .workshop-details {
+            text-align: right;
+        }
+
+        .workshop-details .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .workshop-details .duration {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Vidéo Section */
+        .video-section {
             background: var(--primary);
             color: white;
         }
 
-        .articles-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .articles-grid {
+        .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 3rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
-        .article-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .article-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.02);
-        }
-
-        .article-number {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--dark);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            font-weight: 800;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .article-card h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
-
-        .article-card p {
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        .article-highlight {
-            background: rgba(244, 211, 94, 0.2);
-            padding: 0.2rem 0.5rem;
-            border-radius: 5px;
-            font-style: italic;
-        }
-
-        /* Approach Section */
-        .approach {
-            padding: 6rem 5%;
-            background: white;
-        }
-
-        .approach-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .approach-visual {
-            background: var(--gradient);
-            border-radius: 30px;
-            padding: 4rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .approach-visual::before {
-            content: '🧠';
-            position: absolute;
-            font-size: 20rem;
-            opacity: 0.1;
-            top: -50px;
-            right: -50px;
-        }
-
-        .genius-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .genius-list li {
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            margin-bottom: 1rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--accent);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .approach-text h2 {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-
-        .approach-text p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .quote-box {
-            background: var(--light);
-            border-left: 5px solid var(--secondary);
+        .video-card {
+            background: rgba(255,255,255,0.1);
             padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 0 15px 15px 0;
-            font-style: italic;
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.3rem;
-            color: var(--primary);
+            border-radius: 15px;
+            text-align: center;
         }
 
-        /* Membership Section */
-        .membership {
-            padding: 6rem 5%;
+        .video-placeholder {
+            background: rgba(0,0,0,0.3);
+            height: 250px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 4rem;
+        }
+
+        .video-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Adhésion */
+        .adhesion {
             background: var(--light);
-        }
-
-        .membership-content {
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .form-container {
             background: white;
             padding: 4rem;
             border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            margin-top: 3rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .payment-info {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border: 2px solid var(--secondary);
+        }
+
+        .payment-info h4 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .payment-method {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .payment-method h5 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .iban-display {
+            font-family: monospace;
+            font-size: 1.1rem;
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            word-break: break-all;
+        }
+
+        .qr-code {
+            max-width: 200px;
+            height: auto;
+            margin: 1rem auto;
+            display: block;
         }
 
         .form-group {
@@ -469,7 +434,7 @@
 
         .form-group label {
             display: block;
-            font-weight: 600;
+            font-weight: bold;
             color: var(--primary);
             margin-bottom: 0.8rem;
             font-size: 1.1rem;
@@ -482,9 +447,9 @@
             padding: 1.2rem;
             border: 2px solid #e0e0e0;
             border-radius: 10px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            font-family: 'OpenDyslexic', 'Open Sans', sans-serif;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
         }
 
         .form-group input:focus,
@@ -492,12 +457,11 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(232, 146, 92, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 150px;
         }
 
         .form-row {
@@ -507,23 +471,21 @@
         }
 
         .checkbox-group {
-            margin-bottom: 2rem;
+            margin: 2rem 0;
         }
 
         .checkbox-group label {
             display: flex;
             align-items: center;
-            font-weight: 400;
+            font-weight: normal;
             color: #666;
             margin-bottom: 1rem;
-            cursor: pointer;
         }
 
         .checkbox-group input[type="checkbox"] {
             width: 24px;
             height: 24px;
             margin-right: 1rem;
-            cursor: pointer;
         }
 
         .submit-btn {
@@ -531,18 +493,70 @@
             color: white;
             border: none;
             padding: 1.5rem 4rem;
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 1.3rem;
+            font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
             width: 100%;
-            box-shadow: 0 10px 30px rgba(45, 95, 124, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'OpenDyslexic', 'Open Sans', sans-serif;
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(45, 95, 124, 0.4);
+        }
+
+        /* Statuts */
+        .statuts {
+            background: white;
+        }
+
+        .statuts-content {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .statuts-content h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .statuts-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .statuts-content li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .download-statuts {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
         }
 
         /* Footer */
@@ -568,11 +582,6 @@
 
         .footer-about h3 span {
             color: var(--accent);
-        }
-
-        .footer-about p {
-            opacity: 0.8;
-            line-height: 1.8;
         }
 
         .footer-links h4 {
@@ -603,29 +612,31 @@
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             opacity: 0.6;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero-content,
-            .approach-content {
+            .histoire-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
             }
 
-            .hero h1 {
-                font-size: 3.5rem;
+            .workshop-card {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .hero h1 span {
-                font-size: 4.5rem;
+            .workshop-details {
+                text-align: center;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -634,44 +645,40 @@
                 display: none;
             }
 
-            .hero {
-                padding: 5rem 5% 4rem;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero h1 span {
-                font-size: 3.2rem;
-            }
-
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
-
             .section-title {
-                font-size: 2.5rem;
-            }
-
-            .features-grid,
-            .articles-grid {
-                grid-template-columns: 1fr;
+                font-size: 2.2rem;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
-                gap: 0;
             }
 
             .form-container {
                 padding: 2rem;
             }
+
+            .services-grid,
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -681,241 +688,233 @@
         <div class="nav-container">
             <a href="#" class="logo">Déclic<span>Dys</span></a>
             <ul class="nav-links">
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#approche">Approche</a></li>
-                <li><a href="#articles">Articles</a></li>
+                <li><a href="#histoire">Notre Histoire</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#workshops">Workshops</a></li>
+                <li><a href="#statuts">À propos</a></li>
                 <li><a href="#adhesion">Adhésion</a></li>
             </ul>
-            <a href="#adhesion" class="cta-btn">Devenir Membre</a>
+            <a href="#adhesion" class="cta-btn">Rejoignez-nous</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <div>
-                <h1>
-                    Transformez votre
-                    <span>Différence</span>
-                    en Force
-                </h1>
-                <p>
-                    Association genevoise dédiée aux adolescents et adultes dys. Parce qu'un diagnostic tardif n'est pas un retard, c'est le moment du Reset.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">20+</span>
-                        <span class="stat-label">Années d'expertise tech</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">15-25</span>
-                        <span class="stat-label">Ans : Notre cible</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Approche innovante</span>
-                    </div>
-                </div>
-            </div>
-            <div class="approach-visual">
-                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Ils étaient Dys. Ils sont devenus des génies.</h3>
-                <ul class="genius-list">
-                    <li>✨ Albert Einstein - Physicien</li>
-                    <li>🍎 Steve Jobs - Fondateur Apple</li>
-                    <li>✈️ Richard Branson - Virgin</li>
-                    <li>🎬 Steven Spielberg - Réalisateur</li>
-                </ul>
-                <p style="margin-top: 2rem; opacity: 0.9; font-size: 1.1rem;">
-                    Pourquoi ? Parce qu'ils ont arrêté d'essayer d'être normaux.
-                </p>
-            </div>
+        <h1>Déclic Dys</h1>
+        <p class="tagline">Parce que penser autrement ne devrait jamais empêcher de réussir. Déclic Dys donne aux esprits atypiques les clés de leur propre excellence.</p>
+        <div class="hero-buttons">
+            <a href="#histoire" class="btn-primary">Découvrir notre histoire</a>
+            <a href="#adhesion" class="btn-secondary">Devenir membre</a>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission" id="mission">
-        <div class="mission-content">
-            <div class="section-header">
-                <span class="section-tag">Notre Mission</span>
-                <h2 class="section-title">Un système qui bug n'est pas cassé, il a besoin d'une mise à jour</h2>
-                <p class="section-subtitle">
-                    Nous accompagnons les jeunes dys avec une approche technologique et empathique, adaptée au 21ème siècle.
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Accompagnement Personnalisé</h3>
-                    <p>
-                        Ateliers, coaching et formations adaptés aux adolescents et adultes diagnostiqués tardivement. Parce que chaque cerveau dys est unique.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>Innovation & IA</h3>
-                    <p>
-                        L'IA comme exosquelette cognitif : elle porte le poids (orthographe, structure), vous fournissez l'intelligence (idées, créativité).
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Mindset Reset</h3>
-                    <p>
-                        Le diagnostic tardif n'est pas un retard, c'est le moment du Reset. Transformer le "handicap" en signature cognitive unique.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Soutien aux Familles</h3>
-                    <p>
-                        Groupes de parole, ressources et réseau pour les parents. Parce qu'on ne navigue pas seul dans cette aventure.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎓</div>
-                    <h3>Sensibilisation</h3>
-                    <p>
-                        Former écoles, entreprises et institutions aux troubles dys pour créer un environnement inclusif et adapté.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Vision Macro</h3>
-                    <p>
-                        Comme Steve Jobs, les dys excellent dans la vision globale. Nous cultivons ce don plutôt que de le combattre.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles Section -->
-    <section class="articles" id="articles">
-        <div class="articles-content">
-            <div class="section-header">
-                <span class="section-tag" style="color: var(--accent);">Nos Insights</span>
-                <h2 class="section-title" style="color: white;">Les Vérités qu'on ne vous dit pas</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">
-                    Expertise tech + vécu parental = Une approche révolutionnaire des troubles dys
-                </p>
-            </div>
-
-            <div class="articles-grid">
-                <div class="article-card">
-                    <span class="article-number">01</span>
-                    <h3>Le Diagnostic Tardif : Votre Super-Pouvoir Caché</h3>
-                    <p>
-                        "On vous a dit qu'il était 'lent'. On vous a dit qu'il 'ne faisait pas d'efforts'. Et puis, à 14 ou 16 ans, le mot est lâché : Dyslexique."
-                    </p>
-                    <p style="margin-top: 1rem;">
-                        <span class="article-highlight">Saviez-vous qu'Albert Einstein n'a parlé qu'à 4 ans et lisait mal à 9 ans ?</span> Son cerveau n'était pas lent, il était occupé à concevoir l'univers en images.
-                    </p>
-                </div>
-
-                <div class="article-card">
-                    <span class="article-number">02</span>
-                    <h3>L'IA : L'Exosquelette des Ados Dys-ruptifs</h3>
-                    <p>
-                        Dans la tech, on cherche l'efficacité. Pourquoi passer 4 heures sur une tâche qu'une machine fait en 10 secondes ? Pour un ado dys, l'orthographe et la structure sont des murs.
-                    </p>
-                    <p style="margin-top: 1rem;">
-                        <span class="article-highlight">L'IA est le tunnel qui traverse le mur.</span> Elle porte le poids de la rédaction, votre enfant fournit l'intelligence des idées.
-                    </p>
-                </div>
-
-                <div class="article-card">
-                    <span class="article-number">03</span>
-                    <h3>Fausse Croyance : "C'est trop tard"</h3>
-                    <p>
-                        La Vérité : Le cerveau des ados est en pleine plasticité. Richard Branson (Virgin) a raté son école. Il a créé son empire parce qu'il a appris à déléguer ce qu'il ne savait pas faire.
-                    </p>
-                    <p style="margin-top: 1rem;">
-                        <span class="article-highlight">Le diagnostic à 15 ans peut être un électrochoc positif.</span> Comprendre qu'on n'est pas nul, juste différent. C'est le début de la gagne.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Approach Section -->
-    <section class="approach" id="approche">
-        <div class="approach-content">
-            <div class="approach-text">
-                <h2>Notre Méthode : Tech meets Empathie</h2>
-                <p>
-                    Avec 20 ans d'expérience dans la technologie et l'IA, j'ai appris qu'un système qui bug n'est pas un système cassé, c'est un système qui a besoin d'une mise à jour.
-                </p>
-                <div class="quote-box">
-                    "Steve Jobs ne s'arrêtait pas aux détails techniques, il voyait le design global. C'est le don des dyslexiques : la vision macro."
-                </div>
-                <p>
-                    Notre approche combine :
-                </p>
-                <ul style="list-style: none; margin: 2rem 0;">
-                    <li style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
-                        <strong style="color: var(--primary);">🔧 Outils technologiques</strong> - IA, prompts adaptés, supports visuels
-                    </li>
-                    <li style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
-                        <strong style="color: var(--primary);">💡 Vulgarisation</strong> - Concepts complexes simplifiés
-                    </li>
-                    <li style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
-                        <strong style="color: var(--primary);">🎯 Résultats mesurables</strong> - Confiance, autonomie, performance
-                    </li>
-                    <li style="padding: 1rem 0;">
-                        <strong style="color: var(--primary);">❤️ Empathie parentale</strong> - Vécu authentique
-                    </li>
-                </ul>
-            </div>
+    <!-- Notre Histoire -->
+    <section class="notre-histoire" id="histoire">
+        <div class="section-content">
+            <h2 class="section-title">Notre Histoire</h2>
+            <p class="section-subtitle">Une expertise professionnelle au service d'une mission personnelle</p>
             
-            <div class="approach-visual">
-                <h3 style="font-size: 2.2rem; margin-bottom: 2rem;">La Dyslexie n'est pas un problème de lecture</h3>
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    C'est un problème de traitement de l'information. Comme essayer de lire un Mac avec un logiciel Windows. Le processeur est puissant, c'est juste le format qui diffère.
-                </p>
-                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; border-left: 4px solid var(--accent);">
-                    <p style="font-size: 1.1rem; font-style: italic;">
-                        "Le soir où ma fille a compris la physique via un simulateur visuel plutôt qu'un texte, elle a eu 18/20. Le problème n'était pas son cerveau, c'était le support."
-                    </p>
-                    <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
-                        - Élodie Jallet, Fondatrice Déclic Dys
-                    </p>
+            <div class="histoire-grid">
+                <div class="histoire-photo">
+                    <img src="fondatrices.jpg" alt="Élodie et Margaïd - Fondatrices Déclic Dys" style="width: 100%; height: auto;" />
+                </div>
+                
+                <div class="histoire-text">
+                    <h3>Élodie Jallet - Secrétaire et Trésorière</h3>
+                    
+                    <p>Je travaille depuis de nombreuses années dans les domaines de la technologie, de l'innovation et de la communication stratégique. Dans ce cadre professionnel, j'ai développé et utilisé des méthodes de vulgarisation et de structuration de concepts complexes, reposant sur des reformulations, des analogies et des schémas explicatifs adaptés à des profils cognitifs variés.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Ma fille a été diagnostiquée dyslexique relativement tard, alors qu'elle était déjà en difficulté scolaire.</strong> Comme beaucoup de parents dans cette situation, je me suis retrouvée très démunie face au manque d'accompagnement existant pour les adolescents dyslexiques.</p>
+                    </div>
+                    
+                    <p>Face à cette situation, et en complément des dispositifs existants, j'ai commencé à adapter pour elle les méthodes de vulgarisation que j'utilisais déjà dans mon travail technologique. Cette démarche s'est appuyée à la fois sur mon expérience professionnelle, un travail de recherche approfondi, la lecture de publications académiques, et des travaux issus notamment de l'Université de Yale.</p>
+                    
+                    <p><strong>La mise en place progressive de cette méthode a eu des effets très concrets :</strong> elle a permis à ma fille de mieux comprendre les concepts abordés à l'école, de retrouver de la confiance en ses capacités, et d'améliorer significativement ses résultats aux examens.</p>
+                    
+                    <p>À partir de là, j'ai testé cette approche auprès des enfants d'amis, puis auprès de plusieurs familles, en Suisse et en France. Ces retours de terrain ont permis d'affiner la méthode et ont donné naissance à Déclic Dys.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Membership Section -->
-    <section class="membership" id="adhesion">
-        <div class="membership-content">
-            <div class="section-header">
-                <span class="section-tag">Rejoignez-nous</span>
-                <h2 class="section-title">Devenez Membre de Déclic Dys</h2>
-                <p class="section-subtitle">
-                    Ensemble, transformons la différence en force. Accédez à nos ateliers, formations et communauté de soutien.
-                </p>
+    <!-- Nos Services -->
+    <section class="services" id="services">
+        <div class="section-content">
+            <h2 class="section-title">Nos Services</h2>
+            <p class="section-subtitle">Un accompagnement complet pour transformer la différence en force</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Accompagnement Individuel</h3>
+                    <p>Coaching personnalisé pour adolescents et adultes dys. Nous utilisons des méthodes de vulgarisation adaptées et des outils technologiques innovants pour débloquer votre potentiel.</p>
+                    <div class="service-price">CHF 120 / séance</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Soutien aux Familles</h3>
+                    <p>Groupes de parole, conseils pratiques et ressources pour les parents. Parce que vous n'êtes pas seuls dans cette aventure.</p>
+                    <div class="service-price">Gratuit pour les membres</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Formation IA & Outils</h3>
+                    <p>Apprenez à utiliser l'intelligence artificielle comme exosquelette cognitif. Maîtrisez les prompts adaptés et les outils qui changent tout.</p>
+                    <div class="service-price">CHF 250 / formation</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>Sensibilisation Professionnelle</h3>
+                    <p>Formations pour écoles, entreprises et institutions. Créons ensemble un environnement inclusif et adapté.</p>
+                    <div class="service-price">Sur devis</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Ressources Pédagogiques</h3>
+                    <p>Supports adaptés, guides pratiques et outils téléchargeables pour faciliter l'apprentissage au quotidien.</p>
+                    <div class="service-price">Inclus pour les membres</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Mindset Reset</h3>
+                    <p>Programme intensif pour transformer le regard sur les troubles dys. Comprendre que vous n'êtes pas nul, juste différent.</p>
+                    <div class="service-price">CHF 400 / programme</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops -->
+    <section class="workshops" id="workshops">
+        <div class="section-content">
+            <h2 class="section-title">Nos Workshops</h2>
+            <p class="section-subtitle">Des ateliers pratiques pour développer vos compétences</p>
+            
+            <div class="workshop-card">
+                <div class="workshop-info">
+                    <h4>Maîtriser l'IA pour les Dys</h4>
+                    <p>Atelier intensif de 3 heures pour apprendre à utiliser ChatGPT, Claude et autres outils IA comme de véritables assistants personnels adaptés aux profils dys.</p>
+                    <p><strong>Prochaine session :</strong> À venir</p>
+                </div>
+                <div class="workshop-details">
+                    <div class="price">CHF 180</div>
+                    <div class="duration">3 heures</div>
+                    <a href="#adhesion" class="btn-primary" style="display: inline-block; padding: 0.8rem 2rem;">Réserver</a>
+                </div>
             </div>
 
+            <div class="workshop-card">
+                <div class="workshop-info">
+                    <h4>Stratégies d'Apprentissage Visuel</h4>
+                    <p>Apprenez à transformer des concepts complexes en schémas, cartes mentales et supports visuels adaptés à votre cerveau dys.</p>
+                    <p><strong>Prochaine session :</strong> À venir</p>
+                </div>
+                <div class="workshop-details">
+                    <div class="price">CHF 150</div>
+                    <div class="duration">2h30</div>
+                    <a href="#adhesion" class="btn-primary" style="display: inline-block; padding: 0.8rem 2rem;">Réserver</a>
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <div class="workshop-info">
+                    <h4>Confiance et Performance</h4>
+                    <p>Workshop pour adolescents : retrouver confiance en ses capacités et développer des stratégies de réussite adaptées.</p>
+                    <p><strong>Prochaine session :</strong> À venir</p>
+                </div>
+                <div class="workshop-details">
+                    <div class="price">CHF 200</div>
+                    <div class="duration">4 heures</div>
+                    <a href="#adhesion" class="btn-primary" style="display: inline-block; padding: 0.8rem 2rem;">Réserver</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vidéos -->
+    <section class="video-section" id="videos">
+        <div class="section-content">
+            <h2 class="section-title" style="color: white;">Témoignages & Ressources</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Découvrez nos vidéos inspirantes</p>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-placeholder">🎥</div>
+                    <h4>Notre Mission</h4>
+                    <p>Découvrez pourquoi nous avons créé Déclic Dys et comment nous aidons les esprits atypiques.</p>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-placeholder">🎥</div>
+                    <h4>Témoignage d'Élodie</h4>
+                    <p>Le parcours personnel qui a inspiré la création de l'association.</p>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-placeholder">🎥</div>
+                    <h4>L'IA pour les Dys</h4>
+                    <p>Comment utiliser l'intelligence artificielle comme outil d'accompagnement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adhésion -->
+    <section class="adhesion" id="adhesion">
+        <div class="section-content">
+            <h2 class="section-title">Devenez Membre</h2>
+            <p class="section-subtitle">Rejoignez notre communauté et accédez à tous nos services</p>
+            
             <div class="form-container">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.8rem;">Formulaire d'Adhésion</h3>
+                
+                <div style="background: var(--light); padding: 2rem; border-radius: 15px; margin-bottom: 3rem;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Cotisations Annuelles :</h4>
+                    <ul style="list-style: none; font-size: 1.2rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>Membre Actif :</strong> CHF 100 / an</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Membre de Soutien :</strong> CHF 50 / an</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>Membre Étudiant :</strong> CHF 30 / an</li>
+                        <li><strong>Membre d'Honneur :</strong> Gratuit (sur décision du comité)</li>
+                    </ul>
+                </div>
+
+                <div class="payment-info">
+                    <h4>💳 Informations de Paiement</h4>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <h5>Virement Bancaire</h5>
+                            <p style="margin-bottom: 0.5rem;">IBAN :</p>
+                            <div class="iban-display">CH57 7452 0332 6953 21</div>
+                            <p style="font-size: 0.9rem; color: #666;">Association Déclic Dys</p>
+                        </div>
+                        <div class="payment-method">
+                            <h5>Paiement Revolut</h5>
+                            <p style="margin-bottom: 1rem;">Scannez le QR code :</p>
+                            <img src="qr-revolut.jpg" alt="QR Code Revolut" class="qr-code">
+                        </div>
+                    </div>
+                </div>
+
                 <form id="membershipForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="prenom">Prénom *</label>
+                            <label for="prenom">Prénom</label>
                             <input type="text" id="prenom" name="prenom" required>
                         </div>
                         <div class="form-group">
-                            <label for="nom">Nom *</label>
+                            <label for="nom">Nom</label>
                             <input type="text" id="nom" name="nom" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email *</label>
+                        <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
 
@@ -925,49 +924,133 @@
                             <input type="tel" id="telephone" name="telephone">
                         </div>
                         <div class="form-group">
-                            <label for="ville">Ville *</label>
+                            <label for="ville">Ville</label>
                             <input type="text" id="ville" name="ville" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="type_membre">Type de membre *</label>
+                        <label for="type_membre">Type de membre souhaité</label>
                         <select id="type_membre" name="type_membre" required>
                             <option value="">Sélectionnez...</option>
-                            <option value="actif">Membre Actif (avec cotisation)</option>
-                            <option value="soutien">Membre de Soutien</option>
-                            <option value="parent">Parent d'enfant/ado Dys</option>
-                            <option value="adulte">Adulte Dys</option>
-                            <option value="professionnel">Professionnel (enseignant, thérapeute, etc.)</option>
+                            <option value="actif">Membre Actif - CHF 100/an</option>
+                            <option value="soutien">Membre de Soutien - CHF 50/an</option>
+                            <option value="etudiant">Membre Étudiant - CHF 30/an</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="situation">Votre situation / Besoins spécifiques</label>
-                        <textarea id="situation" name="situation" placeholder="Parlez-nous de votre parcours, vos besoins, ce que vous attendez de l'association..."></textarea>
+                        <label for="profil">Votre profil</label>
+                        <select id="profil" name="profil" required>
+                            <option value="">Sélectionnez...</option>
+                            <option value="parent">Parent d'enfant/ado dys</option>
+                            <option value="adulte">Adulte dys</option>
+                            <option value="ado">Adolescent dys</option>
+                            <option value="professionnel">Professionnel (enseignant, thérapeute, etc.)</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age_enfant">Si vous êtes parent, âge de votre enfant</label>
+                        <input type="text" id="age_enfant" name="age_enfant" placeholder="Ex: 15 ans">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trouble_dys">Type de trouble dys concerné</label>
+                        <select id="trouble_dys" name="trouble_dys">
+                            <option value="">Sélectionnez...</option>
+                            <option value="dyslexie">Dyslexie</option>
+                            <option value="dyspraxie">Dyspraxie</option>
+                            <option value="dyscalculie">Dyscalculie</option>
+                            <option value="dysphasie">Dysphasie</option>
+                            <option value="tdah">TDAH</option>
+                            <option value="multiple">Troubles multiples</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="besoins">Vos besoins spécifiques et attentes</label>
+                        <textarea id="besoins" name="besoins" placeholder="Parlez-nous de votre situation, vos besoins, ce que vous attendez de l'association..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation">Pourquoi souhaitez-vous rejoindre Déclic Dys ?</label>
+                        <textarea id="motivation" name="motivation" placeholder="Votre motivation..."></textarea>
                     </div>
 
                     <div class="checkbox-group">
                         <label>
                             <input type="checkbox" name="newsletter" value="oui">
-                            Je souhaite recevoir la newsletter et les informations sur les ateliers
+                            Je souhaite recevoir la newsletter et les informations sur les workshops
                         </label>
                         <label>
                             <input type="checkbox" name="benevole" value="oui">
-                            Je suis intéressé(e) à devenir bénévole
+                            Je suis intéressé à devenir bénévole
+                        </label>
+                        <label>
+                            <input type="checkbox" name="workshops" value="oui">
+                            Je souhaite être informé des prochains workshops
                         </label>
                         <label>
                             <input type="checkbox" name="rgpd" required>
-                            J'accepte que mes données soient utilisées conformément au RGPD *
+                            J'accepte que mes données soient utilisées conformément au RGPD
                         </label>
                     </div>
 
                     <button type="submit" class="submit-btn">Envoyer ma demande d'adhésion</button>
                 </form>
 
-                <div id="successMessage" style="display: none; background: #d4edda; color: #155724; padding: 2rem; border-radius: 10px; margin-top: 2rem; text-align: center;">
-                    <h3 style="margin-bottom: 1rem;">✅ Merci pour votre demande !</h3>
-                    <p>Nous avons bien reçu votre formulaire d'adhésion. Notre équipe vous contactera dans les plus brefs délais.</p>
+                <div id="successMessage" class="success-message">
+                    <h3 style="margin-bottom: 1rem;">Merci pour votre demande !</h3>
+                    <p>Nous avons bien reçu votre formulaire d'adhésion. Notre équipe vous contactera dans les plus brefs délais pour finaliser votre inscription et le paiement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos / Statuts -->
+    <section class="statuts" id="statuts">
+        <div class="section-content">
+            <h2 class="section-title">À propos de l'Association</h2>
+            <p class="section-subtitle">Association à but non lucratif au sens du Code civil suisse</p>
+            
+            <div class="statuts-content">
+                <h3>Notre Structure</h3>
+                <p><strong>Déclic Dys</strong> est une association à but non lucratif fondée à Genève, régie par les articles 60 et suivants du Code civil suisse. L'association est politiquement neutre et confessionnellement indépendante.</p>
+
+                <h3>Notre Mission</h3>
+                <p>L'association Déclic Dys a pour but :</p>
+                <ul>
+                    <li>D'accompagner, soutenir et informer les enfants, adolescents et adultes présentant des troubles Dys</li>
+                    <li>De soutenir les familles concernées par les troubles Dys</li>
+                    <li>De sensibiliser le public, les établissements scolaires et les entreprises</li>
+                    <li>De favoriser l'inclusion scolaire, sociale et professionnelle</li>
+                    <li>De promouvoir des solutions technologiques et innovantes adaptées</li>
+                </ul>
+
+                <h3>Nos Actions</h3>
+                <p>Pour atteindre ses buts, l'association organise notamment :</p>
+                <ul>
+                    <li>Des ateliers, conférences et formations</li>
+                    <li>Des groupes de parole et actions de sensibilisation</li>
+                    <li>Des collaborations avec des professionnels</li>
+                    <li>Le développement de supports pédagogiques adaptés</li>
+                </ul>
+
+                <h3>Le Comité</h3>
+                <ul>
+                    <li><strong>Présidente :</strong> Margaïd Tanneau Jallet</li>
+                    <li><strong>Secrétaire et Trésorière :</strong> Élodie Jallet</li>
+                </ul>
+
+                <h3>Siège de l'Association</h3>
+                <p>Rue du Nant 23, CH-1207 Genève, Suisse</p>
+
+                <div class="download-statuts">
+                    <p style="margin-bottom: 1rem; color: #666;">Pour consulter la version complète de nos statuts :</p>
+                    <a href="Statuts_de_l_association_De_clic_Dys_4_02_2026.pdf" class="download-btn" download>📄 Télécharger les statuts complets</a>
                 </div>
             </div>
         </div>
@@ -978,98 +1061,59 @@
         <div class="footer-content">
             <div class="footer-about">
                 <h3>Déclic<span>Dys</span></h3>
-                <p>
-                    Association genevoise à but non lucratif dédiée aux troubles dys. Nous accompagnons adolescents et adultes avec une approche innovante mêlant technologie et empathie.
-                </p>
-                <p style="margin-top: 1.5rem;">
-                    <strong>Siège:</strong> Rue du Nant 23, CH-1207 Genève, Suisse
-                </p>
+                <p>Association genevoise à but non lucratif dédiée aux troubles dys. Nous donnons aux esprits atypiques les clés de leur propre excellence.</p>
+                <p style="margin-top: 1.5rem;"><strong>Siège :</strong> Rue du Nant 23, CH-1207 Genève, Suisse</p>
+                <p style="margin-top: 0.5rem;"><strong>IBAN :</strong> CH57 7452 0332 6953 21</p>
             </div>
 
             <div class="footer-links">
                 <h4>Navigation</h4>
                 <ul>
-                    <li><a href="#mission">Notre Mission</a></li>
-                    <li><a href="#approche">Notre Approche</a></li>
-                    <li><a href="#articles">Articles</a></li>
+                    <li><a href="#histoire">Notre Histoire</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#workshops">Workshops</a></li>
+                    <li><a href="#statuts">À propos</a></li>
                     <li><a href="#adhesion">Adhésion</a></li>
                 </ul>
             </div>
 
             <div class="footer-links">
-                <h4>Ressources</h4>
+                <h4>Contact</h4>
                 <ul>
-                    <li><a href="#">Ateliers & Formations</a></li>
-                    <li><a href="#">Groupes de Parole</a></li>
-                    <li><a href="#">Outils IA</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="mailto:contact@declicdys.com">contact@declicdys.com</a></li>
+                    <li><a href="#adhesion">Devenir membre</a></li>
+                    <li><a href="#workshops">Nos workshops</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Déclic Dys - Association genevoise à but non lucratif | Tous droits réservés</p>
+            <p>&copy; 2026 Déclic Dys - Association genevoise à but non lucratif | Présidente: Margaïd Tanneau Jallet | Secrétaire & Trésorière: Élodie Jallet</p>
         </div>
     </footer>
 
     <script>
-        // Form submission handler
         document.getElementById('membershipForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // In production, this would send data to a server
-            // For now, we'll just show a success message
             
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
             
-            console.log('Form submitted with data:', data);
+            console.log('Form submitted:', data);
             
-            // Hide form and show success message
             this.style.display = 'none';
             document.getElementById('successMessage').style.display = 'block';
-            
-            // Scroll to success message
             document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-        });
-
-        // Add scroll animation to feature cards
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(30px)';
-                    setTimeout(() => {
-                        entry.target.style.transition = 'all 0.6s ease-out';
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 100);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card, .article-card').forEach(card => {
-            observer.observe(card);
         });
     </script>
 </body>
