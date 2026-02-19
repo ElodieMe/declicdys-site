@@ -487,6 +487,42 @@
         </div>
     </section>
 
+    <!-- Avantages Membres -->
+    <section class="avantages-membres" style="background: var(--light); padding: 5rem 5%;">
+        <div class="section-content">
+            <h2 class="section-title trans" data-fr="Avantages Membres" data-en="Member Benefits">Avantages Membres</h2>
+            <p class="section-subtitle trans" data-fr="Rejoignez notre communauté et profitez d'avantages exclusifs" data-en="Join our community and enjoy exclusive benefits">
+                Rejoignez notre communauté et profitez d'avantages exclusifs
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎓</div>
+                    <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 1rem;">Workshop Trimestriel</h3>
+                    <p style="color: #666;">Accès à un workshop par trimestre pour développer vos compétences</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📚</div>
+                    <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 1rem;">Base de Connaissances</h3>
+                    <p style="color: #666;">Accès illimité à notre bibliothèque de ressources et guides pratiques</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                    <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 1rem;">Audit Personnalisé</h3>
+                    <p style="color: #666;">Audit de situation et recommandations adaptées à vos besoins</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
+                    <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 1rem;">App à Vie</h3>
+                    <p style="color: #666;">Rabais exclusif sur notre application mobile à vie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Workshops -->
     <section class="workshops" id="workshops">
         <div class="section-content">
@@ -609,7 +645,7 @@
             </p>
             
             <div class="form-container">
-                <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.8rem;" class="trans" data-fr="Formulaire d'Adhésion" data-en="Membership Form">Formulaire d'Adhésion</h3>
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.8rem;" class="trans" data-fr="Formulaire de Contact" data-en="Contact Form">Formulaire de Contact</h3>
                 
                 <div style="background: var(--light); padding: 2rem; border-radius: 15px; margin-bottom: 3rem;">
                     <h4 style="color: var(--primary); margin-bottom: 1rem;" class="trans" data-fr="Cotisations Annuelles :" data-en="Annual Fees:">Cotisations Annuelles :</h4>
@@ -665,12 +701,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="trans" data-fr="Type de membre" data-en="Membership type">Type de membre</label>
+                        <label class="trans" data-fr="Type de demande" data-en="Request type">Type de demande</label>
                         <select name="type_membre" id="formTypeMembre" required>
                             <option value="">Sélectionnez...</option>
                             <option value="actif">Membre Actif - CHF 150/an</option>
                             <option value="soutien">Membre de Soutien - CHF 80/an</option>
                             <option value="etudiant">Membre Étudiant - CHF 50/an</option>
+                            <option value="autre">Autre achat non membre et renseignement</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -706,8 +743,8 @@
 
                 <div id="successMsg" class="success-message">
                     <h3 style="margin-bottom: 1.5rem;">✅ <span class="trans" data-fr="Merci !" data-en="Thank you!">Merci !</span></h3>
-                    <p style="margin-bottom: 2rem;" class="trans" data-fr="Votre demande d'adhésion a été reçue. Pour finaliser votre inscription, veuillez effectuer le paiement de votre cotisation." data-en="Your membership request has been received. To finalize your registration, please make your membership fee payment.">
-                        Votre demande d'adhésion a été reçue. Pour finaliser votre inscription, veuillez effectuer le paiement de votre cotisation.
+                    <p style="margin-bottom: 2rem;" class="trans" data-fr="Merci d'avoir complété le formulaire. Une confirmation vous sera adressée par email avec les informations nécessaires." data-en="Thank you for completing the form. A confirmation will be sent to you by email with the necessary information.">
+                        Merci d'avoir complété le formulaire. Une confirmation vous sera adressée par email avec les informations nécessaires.
                     </p>
                     
                     <div style="background: white; padding: 2rem; border-radius: 15px; margin-top: 2rem;">
@@ -776,7 +813,7 @@
             <div class="footer-links">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#650d0009090a25010006090c06011c164b060a08"><span class="__cf_email__" data-cfemail="e78f828b8b88a78382848b8e84839e94c984888a">[email&#160;protected]</span></a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#a2cac7cececde2c6c7c1cecbc1c6dbd18cc1cdcf"><span class="__cf_email__" data-cfemail="036b666f6f6c436766606f6a60677a702d606c6e">[email&#160;protected]</span></a></li>
                     <li><a href="#adhesion" class="trans" data-fr="Devenir membre" data-en="Become a member">Devenir membre</a></li>
                     <li><a href="#workshops" class="trans" data-fr="Réserver un workshop" data-en="Book a workshop">Réserver un workshop</a></li>
                 </ul>
@@ -791,7 +828,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         let lang = 'fr';
         function toggleLang() {
             lang = lang === 'fr' ? 'en' : 'fr';
@@ -883,4 +920,19 @@
         function copyIBAN() {
             const iban = 'CH57 7452 0332 6953 21';
             navigator.clipboard.writeText(iban).then(() => {
-                alert(lang === 'fr' ? '✅ IBAN cop
+                alert(lang === 'fr' ? '✅ IBAN copié !' : '✅ IBAN copied!');
+            });
+        }
+        
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
